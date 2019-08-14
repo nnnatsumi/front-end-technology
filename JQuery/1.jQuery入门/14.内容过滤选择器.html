@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* div{
+				list-style-type: none;
+				width: 200px;
+				height: 50px;
+				border: 1px solid skyblue;
+			} */
+		</style>
+	</head>
+	<body>
+		
+		<!-- 
+		案例一：
+			<div>
+				我是含有文本的div
+			</div>
+			<div></div>
+			<button type="button">点击一下</button> 
+		-->
+		
+		<div id="Test">
+			<ul>
+				<li>哈哈</li>
+				<li>嘎嘎哈哈啦</li>
+				<li></li>
+				<li>风一样的女子</li>
+				<li>
+					<a>jQuery</a>
+				</li>
+			</ul>
+		</div>
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/* 
+			案例一:
+				$(document).ready(function(){
+					$("button").click(function{
+						$("div:parent").animate({
+							width:"300px"
+						});
+					})
+				}) */
+				
+				$(function(){
+					//包含"哈"的li的内容
+					alert($("li:contains(哈)").text());
+					//内容为空的li的后一个li的内容
+					alert($("li:empty+li").text());
+					//包含a标签的li内容
+					alert($("li:has(a)").text());
+				})
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+内容过滤选择器：
+						1. :contains()选择器
+											————>用于选择包含给定文本的所有元素
+											————>$("selector:contains(text)")
+						2. :has()选择器
+											————>用于选择包含给定子元素的元素
+											————>$("selector1:has(selector2)")
+						3. :empty选择器
+											————>用于选择不包含子元素或者文本的所有空元素
+											————>$("selector:empty")
+						4. :parent选择器
+											————>用于选择包含子元素或者文本的所有空元素
+											————>$("selector:parent")
+-->

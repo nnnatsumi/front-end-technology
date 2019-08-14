@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<h3>表单对象属性过滤选择器</h3>
+		<form action="#" id="form1">
+			<button type="reset">重置表单元素</button>
+			<input type="checkbox" name="" id="isreset" value="" checked="checked" />
+			<label for="isreset">
+				点击下列按钮先自动重置页面
+			</label>
+			<br /><br />
+			
+			<button id="btn1">对表单内可用input赋值操作</button>
+			<button id="btn2">对表单内不可用input赋值操作</button>
+			<button id="btn3">获取多选框选中的个数</button>
+			<button id="btn4">获取下拉框选中的内容</button>
+			<br /><br />
+			
+			可用元素：
+			<input type="" name="add" id="" value="可用文本框" />
+			<br />
+			不可用元素：
+			<input type="" name="email" id="" value="不可用文本框" disabled="disabled" />
+			<br />
+			可用元素：
+			<input name="che" value="可用文本框" />
+			<br />
+			不可用元素：
+			<input type="" name="name" id="" value="不可用文本框" disabled="disabled"/>
+			<br /><br />
+			
+			多选框：<br />
+			<input type="checkbox" name="newsletter" value="test1" checked="checked" />test1
+			<input type="checkbox" name="newsletter" value="test2" />test2
+			<input type="checkbox" name="newsletter" value="test3" />test3
+			<input type="checkbox" name="newsletter" value="test4" checked="checked" />test4
+			<input type="checkbox" name="newsletter" value="test5" />test5
+			<br /><br />
+			
+			下拉列表：<br />
+			<select name="test" multiple="multiple" style="height: 100px;">
+				<option selected="selected" value ="">浙江</option>
+				<option value ="河南">henan</option>
+				<option value ="">北京</option>
+				<option selected="selected" value ="天津">tianjin</option>
+				<option value ="">上海</option>
+				<option value ="">余姚</option>
+			</select>
+			<br /><br />
+			
+			下拉列表2：<br />
+			<select name="test2">
+				<option>浙江</option>
+				<option>河南</option>
+				<option selected="selected">北京</option>
+				<option>天津</option>
+				<option>上海</option>
+				<option>余姚</option>
+			</select>
+		</form>
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//获取id为btn1的button,对input进行赋值
+				$("#btn1").click(function(){
+					$("input:enabled").val("一蓑烟雨任平生");
+				});
+				//获取id为btn2的button,对input进行赋值
+				$("#btn2").click(function(){
+					$("input:disabled").val("竹杖芒鞋轻胜马");
+				});
+				//获取id为btn3的button并查找选中个数
+				$("#btn3").click(function(){
+					alert($("input:checked").length-1);
+				});
+				//获取id为btn4的button获取内容
+				$("#btn4").click(function(){
+					/* 
+						1.要遍历的元素角标
+						2.遍历出来的对应的dom 
+					*/
+				 $("select>option:selected").each(function(index,docxml){
+					 alert($(docxml).text());
+				 });
+				});
+			});
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+表单对象属性过滤器：
+								1. :checked选择器
+													————>用于选择所有被选中的表单域
+													————>$("selector:checked")
+								2. :enabled选择器
+													————>用于选择所有可用的表单域
+													————>$("selector:enabled")
+								3. :disabled选择器
+													————>用于选择所有被禁用的表单域
+													————>$("selector:disabled")
+								4. :selected选择器
+													————>用于选择从列表框选择所有选中的option元素
+													————>$("selector:selected")
+-->

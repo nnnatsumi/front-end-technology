@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="text" name="company" id="" value="融创软通" />
+		<input type="text" name="employee" id="" value="张建军" />
+		<input type="text" name="teacher" id="" value="何晶" />
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//获取name为company的值
+				alert($("input[name='company']").val());
+				//获取name以emp开始的值
+				alert($("input[name^='emp']").val());
+				//获取以oyee为结束的值
+				alert($("input[name$='oyee']").val());
+				//获取name中包含ea的值
+				alert($("input[name*='ea']").val());
+			})
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+属性过滤选择器：
+						1. 包含属性选择器
+											————>用于选择包含给定属性的所有元素
+											————>$("selector[attribute]")
+						2. 属性等于选择器
+											————>用于选择给定属性等于某特定值的所有元素
+											————>$("selector1[attribute=value]")
+						3. 属性包含选择器
+											————>用于选择给定属性值包含给定字符串的所有元素
+											————>$("selector[attribute*=value]")
+						4. 属性包含单词选择器
+											————>用于选择指定属性中包含给定单词(由空格分割)的元素
+											————>$("selector[attribute~=value]")
+						5. 属性不等于选择器
+											————>用于选择不包含给定属性，或者包含指定属性但该属性不等于某个值的所有元素
+											————>$("selector[attribute!=value]")
+						6. 属性开始选择器
+											————>用于选择包含给定属性是以某特定值开始的所有元素
+											————>$("selector1[attribute^=value]")
+						7. 属性结尾选择器
+											————>用于选择包含给定属性是以某特定值结尾的所有元素
+											————>$("selector[attribute$=value]")
+						8. 复合属性选择器
+											————>用于选择同时满足多个条件的所有元素
+											————>$("selector[selector1][selector2]...[selectorN]")
+-->

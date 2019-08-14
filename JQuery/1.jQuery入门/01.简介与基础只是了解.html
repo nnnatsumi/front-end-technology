@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<a href="">link</a>
+		
+		<!-- 页面引入jQuery代码 -->
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//弹出helloworld
+			$(document).ready(function(){
+				alert("helloworld!")
+			});
+			
+			//单机超链接弹出对话框
+			$(function(){
+				//获取a标签,监听超连接的点击事件
+				$("a").click(function(){
+					alert("一蓑烟雨任平生");
+				});
+			});
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+			jQuery：
+						1.jQuery是一个JavaScript函数库。
+						2.jQuery是一个轻量级的"写的少，做的多"的JavaScript库。
+						3.jQuery库包含以下功能：
+															• HTML 元素选取
+															• HTML 元素操作
+															• CSS 操作
+															• HTML 事件函数
+															• JavaScript 特效和动画
+															• HTML DOM 遍历和修改
+															• AJAX
+															• Utilities
+						提示： 除此之外，Jquery还提供了大量的插件。
+
+			
+			jQuery的特点:
+									1.写尽量少的代码,做更多的事
+									2.简洁的代码完成更丰富的工作,改变我们写代码的行为方式
+									3.支持各种主流浏览器(IE6/FireFox2/Safari2/Opera9以上版本)
+									4.以强大的CSS选择器为基础,几乎的所有操作都先使用选择器查找DOM对象,然后对其进行操作
+									5.屏蔽浏览器的差异,对DOM操作提供了方便的拓展
+									6.易用的事件处理API和动画API
+									7.强大的插件机制
+									8.学习容易,易用性高
+									
+			jQuery的优势：
+									1.轻量级
+									2.强大的选择器
+									3.出色的DOM操作的封装
+									4.可靠的事件处理机制
+									5.完善的Ajax
+									6.不污染顶级变量
+									7.出色的浏览器兼容
+									8.链式操作方式
+									9.隐式迭代
+									10.行为层与结构层分离
+									11.丰富的插件支持
+									12.完善的文档
+									13.开源
+									
+			jQuery的基本语法：
+											jQuery 语法是通过选取 HTML 元素，并对选取的元素执行某些操作。
+							基础语法： 
+											$(selector).action()
+											
+			jQuery的代码风格：
+											代码采取链式操作风格：
+																				1.对同一个对象不超过三次操作，可以写成一行
+																				2.对同一个对象操作较多的，建议每行写一个操作
+																				3.对于多个对象的少量操作，可以每个对象写一行，如果涉及子元素，																					 可以适当考虑缩进
+																				4.对于多个对象的较多操作，可以结合2，3条
+											
+			文档就绪函数：
+									$(document).ready() ——————> 用于在页面加载成功后执行的指定代码
+						 注意：
+									通常该函数用于替换window.onload事件，文档就绪函数的执行效率更高。两者比较：
+													1.执行时机不同：
+																	window.onload：必须页面所有内容(包括图片)加载完毕
+																	$(document).ready()：在页面的DOM结构绘制完毕后就执行
+													2.编写个数不同：
+																	window.onload：不能多次编写，后面编写的会覆盖前面编写的
+																	$(document).ready()：可以进行多次编写，每次都可以执行
+ -->

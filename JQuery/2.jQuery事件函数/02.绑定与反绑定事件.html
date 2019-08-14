@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+绑定事件：bind
+				————>语法：bind(type,[data],fn)				返回值：Object
+				————>参数说明：
+										type：事件类型String
+										data：可选，作为event.data属性值传递给后面fn的实参Object
+										fn：绑定到事件上的函数Function
+				————>例子：$("#id").click(function(){})
+				————>注意：
+								1.第二个参数data作为一个json对象，在fn函数中通过event.data通过键名获得参数值
+								2.若bind绑定的函数与浏览器默认操作冲突，若要阻止浏览器默认操作，则：
+									在fn后加上return false
+									
+反绑定事件：unbind
+				————>语法：bind([type],[fn名])				返回值：Object
+				————>参数说明：
+										type：事件类型String
+										fn名：要解除绑定到事件上的函数Function
+				————>注意：
+								反绑定事件的两个参数均为可选参数，若参数为空，就是解除所有匹配元素的所有事件所绑定的函数
+								
+one(type,[data],fn)
+				————>就是为某元素的某事件所绑定的某函数只能被执行一次
+				————>语法：one(type,[data],fn)			返回值：Object
+				————>参数说明：
+										type：事件类型String
+										data：可选，作为event.data属性值传递给后面fn的实参Object
+										fn：绑定到事件上的函数Function，只能被执行一次
+-->

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="divTest">
+			<ul>
+				<li>投资</li>
+				<li>理财</li>
+				<li>成熟</li>
+				<li>担当</li>
+				<input type="radio" name="" id="" value="学习" checked="checked" />学习
+				<input type="radio" name="" id="" value="不学习" />不学习
+			</ul>
+			<h3>竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生</h3>
+		</div>
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//获取第一个li内容
+				alert($("li:first").text());
+				//获取最后一个li内容
+				alert($("li:last").text());
+				//获取input未被选中的值
+				alert($("ul input:not(:checked)").val());
+				//获取索引为偶数的li的内容
+				alert($("li:even").text());
+				//获取索引为奇数的li的内容
+				alert($("li:odd").text());
+				//获取索引值为等于0的li的内容
+				alert($("li:eq(0)").text());
+				//获取索引值为大于2的li的内容
+				alert($("li:gt(2)").text());
+				//获取索引值为小于1的li的内容
+				alert($("li:lt(1)").text());
+				//获取header选择器选取的所有标题元素(h1-h6)
+				alert($(":header").text());
+			})
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+简单过滤选择器：
+						1. :first选择器
+											————>对当前jQuery集合进行过滤并选择出第一个匹配元素
+											————>$(":selector:first")
+						2. :last选择器
+											————>对当前jQuery集合进行过滤并选择出最后一个匹配元素
+											————>$(":selector:last")
+						3. :odd选择器
+											————>用于选择索引为奇数(从0开始)的所有元素
+											————>$(":selector:odd")
+						4. :even选择器
+											————>用于选择索引为偶数(从0开始)的所有元素
+											————>$(":selector:even")
+						5. :eq()选择器
+											————>用于从匹配的集合中索引给定值的元素
+											————>$(":selector:eq(index)"),index
+						6. :gt()选择器
+											————>用于从匹配的集合中索引大于给定值的所有元素
+											————>$(":selector:gt(index)"),index
+						7. :lt()选择器
+											————>用于从匹配的集合中索引小于给定值的所有元素
+											————>$(":selector:lt(index)"),index
+						8. :not选择器
+											————>用于从匹配的集合中去除与给定选择器匹配的元素
+											————>$(":selector1:not(selector2)")
+						9. :header选择器
+											————>用于选择所有诸如h1,h2,h3之类的标题元素
+											————>$(":header")
+						10. :animated选择器
+											————>用于选择所有正在执行动画效果的元素
+											————>$(":selector:animated")
+-->

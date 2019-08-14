@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="n1">
+			人生如棋
+			<p id="n2" class="test">落子无悔</p>
+			<p id="n3" class="detail">
+				<span id="n4" class="test codeplayer">一蓑烟雨任平生</span>
+			</p>
+		</div>
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//一次性查找到id为n1的div标签,id为n2的p标签,包含类名的test的span标签:
+					//$("#n1,#n2,span.test");
+					
+				//一次性查找到包含类名detail的p标签,包含类名test的所有标签:
+					//$("p.detail,.test");
+			});
+		</script>
+		
+	</body>
+</html>

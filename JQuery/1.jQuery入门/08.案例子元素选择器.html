@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				margin: 5px;
+			}
+			.input{
+				font-size: 12px;
+				color: #333333;
+				background-color: gray;
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<form id="form1" name="form1" action="" method="post">
+			姓&nbsp;&nbsp;名:<input type="text" name="name" id="name" />
+			<br />
+			籍&nbsp;&nbsp;贯:<input type="text" name="native" id="native" />
+			<br />
+			生&nbsp;&nbsp;日:<input type="text" name="birthday" id="birthday" />
+			<br />
+			E-mail:<input type="text" name="email" id="email" />
+			<br />
+			<span>
+				<input type="button" name="change" id="change" value="换肤" />
+			</span>
+			<input type="button" name="default" id="default" value="恢复默认" />
+		</form>
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+					//绑定换肤按钮的单击事件
+					$("#change").click(function(){
+						//为表单元素的直接子元素input添加类名为"input"的样式
+						$("form>input").addClass("input");
+					});
+					
+					//绑定恢复默认按钮
+					$("#default").click(function(){
+						//为表单元素的直接子元素input移除类名为"input"的样式
+						$("form>input").removeClass("input");
+					});
+			});
+		</script>
+		
+	</body>
+</html>

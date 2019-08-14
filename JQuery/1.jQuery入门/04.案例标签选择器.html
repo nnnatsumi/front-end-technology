@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div>这里种植了一棵草莓</div>
+		<div>这里养殖了一条鱼</div>
+		<input type="button" name="" id="" value="若干年后" />
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//为按钮绑定点击事件
+				$("input[type='button']").click(function(){
+					//获取第一个div元素
+					$("div").eq(0).html("这里长出了一片草莓");
+					//获取第二个div元素
+					$("div").get(1).innerHTML = "这里的鱼没了";
+				});
+			});
+		</script>
+		
+	</body>
+</html>

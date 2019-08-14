@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<ul id="list">
+			<li>
+				<label>
+					<input type="checkbox" name="" id="" value="1" />1.时间都去哪了
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" name="" id="" value="2" />2.海阔天空
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" name="" id="" value="3" />3.我好想你
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" name="" id="" value="4" />4.约定
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" name="" id="" value="5" />5.一丝不挂
+				</label>
+			</li>
+			<li>
+				<label>
+					<input type="checkbox" name="" id="" value="6" />6.那年夏天
+				</label>
+			</li>
+		</ul>
+		<input type="checkbox" name="" id="all" value="" />
+		<input type="button" class="btn" id="selectAll" value="全选" />
+		<input type="button" class="btn" id="unSelect" value="全不选" />
+		<input type="button" class="btn" id="reverse" value="反选" />
+		
+		<script src="../jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function allchk(){
+				//获取选项的总个数
+				var chknum = $("#list :checkbox").size();
+				var chk = 0;
+				$("#list :checkbox").each(function(){
+					if($(this).prop("checked") == true){
+						chk++;
+					}
+				});
+				//全选
+				if(chknum == chk){
+					$("#all").prop("checked",true);
+				}else{
+					$("#all").prop("checked",false);
+				}
+			}
+			
+			$(function(){
+				//全选或全不选
+				$("#all").click(function(){
+					if(this.checked){
+						$("#list :checkbox").prop("checked",true);
+					}else{
+						$("#list :checkbox").prop("checked",false);
+					}
+				});
+				//全选
+				$("#selectAll").click(function(){
+					$("#list :checkbox").prop("checked",true);
+				});
+				//全不选
+				$("#unSelect").click(function(){
+					$("#list :checkbox").prop("checked",false);
+				});
+				//反选
+				$("#reverse").click(function(){
+					$("#list :checkbox").each(function(){
+						$(this).prop("checked",!$(this).prop("checked"));
+					});
+					//调用函数
+					allchk();
+				});
+				//设置复选框
+				$("#list :checkbox").click(function(){
+					allchk();
+				});
+			});
+			
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+表单域选择器：
+					1. :input选择器
+										————>用于选择所有input,textarea,select,button元素
+										————>$(":input")
+					2. :text选择器
+										————>用于选择所有单行文本框(<input type="text" />)
+										————>$(":text")
+					3. :password选择器
+										————>用于选择所有密码框(<input type="password" />)
+										————>$(":passwprd")
+					4. :radio选择器
+										————>用于选择所有单选按钮(<input type="radio" />)
+										————>$(":radio")
+					5. :checkbox选择器
+										————>用于选择所有复选框(<input type="checkbox" />)
+										————>$(":checkbox")
+					6. :file选择器
+										————>用于选择所有文本域(<input type="file" />)
+										————>$(":file")
+					7. :image选择器
+										————>用于选择所有图像域(<input type="image" />)
+										————>$(":image")
+					8. :hidden选择器
+										————>用于选择所有不可见元素(<input type="hidden" />)
+										————>$(":hidden")
+					9. :button选择器
+										————>用于选择所有按钮(<input type="button" />和<button>...</button>)
+										————>$(":button")
+					10. :submit选择器
+										————>用于选择所有提交按钮(<input type="submit" />和<button>...</button>)
+										————>$(":submit")
+					11. :reset选择器
+										————>用于选择所有重置按钮(<input type="reset" />)
+										————>$(":reset")
+-->
