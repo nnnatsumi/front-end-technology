@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-model实现计算器</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<h1>v-model实现简易计算器</h1>
+			
+			<!-- 界面 -->
+			
+			<input type="text" v-model="n1" />
+			
+			<select v-model="opt">
+				<option value ="+">+</option>
+				<option value ="-">-</option>
+				<option value ="*">*</option>
+				<option value ="/">/</option>
+			</select>
+			
+			<input type="text" v-model="n2" />
+			
+			<input type="button" value="=" @click="clk" />
+			
+			<input type="text" name="" v-model="result" />
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				n1: 0,
+				n2: 0,
+				result: 0,
+				opt: '+'
+			},
+			methods:{
+				clk(){
+					//计算方法业务逻辑
+					
+					//方法一:
+					switch(this.opt){
+						case '+':
+								this.result = parseInt(this.n1) + parseInt(this.n2);
+								break;
+						case '-':
+								this.result = parseInt(this.n1) - parseInt(this.n2);
+								break;
+						case '*':
+								this.result = parseInt(this.n1) * parseInt(this.n2);
+								break;
+						case '/':
+								this.result = parseInt(this.n1) / parseInt(this.n2);
+								break;
+					}
+					
+					//方法二:(投机取巧的方式,正是开发中，尽量少用)
+					/* 
+					var codeStr = 'parseInt(this.n1) '+ this.opt +' parseInt(this.n2)';
+					this.result = eval(codeStr); 
+					*/
+				}
+			}
+		})
+	</script>
+	
+</html>

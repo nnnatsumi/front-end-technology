@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Event</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	</head>
+	<body>
+		<!-- 通过事件传参的方法可以随便增加减少数值 -->
+		<div id="vueApp">
+			<h1>Event</h1>
+		<!-- 点击事件 -->
+			<!-- 单击事件 -->
+			<button v-on:click="add(1)">加一岁</button>
+			<button v-on:click="subtract(1)">减一岁</button>
+			<!-- <button v-onclick="add++">加一岁</button>
+				 <button @click="add(1)">加一岁</button>
+				 <button @click.once="add(1)">加一岁</button>,此中的“once”的作用是限制了点击后修改次数，即只能加一次，此后点击无效。
+				 <button v-onclick="subtract--">减一岁</button> 
+			-->
+			
+			<!-- 双击事件 -->
+			<button v-on:dblclick="add(10)">加十岁</button>
+			<!-- <button @dblclick="add(10)">加十岁</button> -->
+			<button v-on:dblclick="subtract(10)">减十岁</button>
+			<p>我的年龄是{{ age }}</p>
+			
+		<!-- 鼠标事件 -->
+			<div id="canvas" v-on:mousemove="updataXY">
+				{{x},{{y}} -
+				<span v-on:mousemove.stop="">Stop Moving</span>
+				<!-- 此处“.stop”的作用是鼠标移动到此处不会有x,y的坐标数值显示 -->
+			</div>
+			<a v-on:click="alert()" href="www.baidu.com">The New Step</a>
+			<!-- 此处通过“v-on:click”,可以使点击后不会发生直接跳转到新的页面，而是弹出“Alert()”里的内容，然后发生跳转 -->
+			<a v-on:click.prevent="alert()" href="www.baidu.com">The New Step</a>
+			<!-- 此处通过“v-on:click.prevent”,只是弹出“Alert()”里的内容，而后不会发生新的页面跳转 -->
+		</div>
+		
+		<script type="text/javascript" src="js/app-one.js"></script>
+	</body>
+</html>

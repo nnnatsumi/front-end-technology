@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Vue练习</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	</head>
+	<body>
+		<!-- vue-app是根容器 --> 
+		<div id="vueApp">
+			<!-- 方法的调用类似于属性的调用 -->
+			<h1>{{ greet('afternoon') }}</h1>
+			<!-- 属性的调用 -->
+			<p>{{ name }}</p>
+			<p>{{ job }}</p>
+			<!-- “v-bind”用于属性值的绑定 -->
+			<a v-bind:href="website"></a>
+			<input v-bind:value="name" />
+			<!-- “v-html”用于属性标签绑定 -->
+			<p v-html="websiteTag"></p>
+		</div>
+		<script src="js/app.js"></script>
+	</body>
+</html>

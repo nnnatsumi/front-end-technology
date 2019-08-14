@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<!-- 
+					v-cloak： 
+									能够解决网速不好加载 vue.js 文件过慢而导致的差值表达式闪烁问题 
+			-->
+			<p v-cloak> {{msg}} </p>
+			
+			
+			<!-- 
+					v-text： 
+								与差值表达式的作用差不多
+								但是也有区别：
+											1）v-text 没有闪烁的问题
+											2）v-text 会覆盖元素中原本的内容，但是差值表达式不会
+			 -->
+			<h4 v-text="msg">12345</h4>
+			
+			
+			<!-- 
+						v-html： 
+									能够渲染出数据中的html标签，并覆盖掉元素本来的内容 
+			-->
+			<div v-html="msg2">12345</div>
+			
+			
+			<!-- v-bind： 
+									是Vue中提供用于绑定属性的指令，只能实现数据的单向绑定（从 M 自动绑定到 V ）
+									可以简写为：“:” 
+			-->
+			<input type="button" value="按钮" v-bind:title="mytitle" />
+			<!-- 简写 -->
+			<input type="button" value="按钮2" :title="mytitle" />
+			
+			
+			<!-- 
+						v-on：
+									是Vue中提供用于绑定事件的指令
+									可以简写为：“@”
+			-->
+			<input type="button" value="按钮3" v-on:click="show" />
+			<!-- 简写 -->
+			<input type="button" value="按钮4" @click="show" />
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"林林",
+				msg2:"<h1>竹杖芒鞋轻胜马</h1>",
+				mytitle:"一蓑烟雨任平生"
+			},
+			methods:{
+				show:function(){
+					alert("你好吗？林林");
+				}
+			}
+		})
+	</script>
+	
+</html>

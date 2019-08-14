@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>汇率转换器</title>
+	</head>
+	<body>
+		<div id="div1">
+			<table align="center">
+				<tr class="firstline">
+					<td align="center">人民币</td>
+					<td align="center">美元</td>
+				</tr>
+				
+				<tr>
+					<td align="center" colspan="2">
+            汇率： <input type="number" v-model.number="exchange" />
+            </td>
+				</tr>
+				
+				<tr>
+					<td align="center">
+						人民币：<input type="number" v-model.number="rmb" />
+					</td>
+					<td align="center">
+						美元：<input type="number" v-model.number="dollar" />
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#div1',
+			data:{
+				exchange:6.4,
+				rmb:0,
+				dollar:0
+			},
+			//计算属性
+			watch:{
+				rmb:function(val){
+					this.rmb = val;
+					this.dollar = this.rmb/this.exchange;
+				},
+				dollar:function(val){
+					this.dollar = val;
+					this.rmb = this.dollar*this.exchange;
+				},
+			}
+		})
+	</script>
+</html>

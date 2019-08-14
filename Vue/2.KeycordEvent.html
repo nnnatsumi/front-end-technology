@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Keycord</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="vueApp">
+			<h1>键盘 Events</h1>
+			<label>姓名：</label>
+			<input type="text" v-on:keyup="logName" />
+			<!-- 输入即触发 -->
+			<input type="text" v-on:keyup.enter="logName" />
+			<!-- “.enter”的作用是输入后按了“Enter”键以后才触发 -->
+			
+			<label>年龄：</label>
+			<input type="text" v-on:keyup="logAge" />
+			<!-- 输入即触发 -->
+			<input type="text" v-on:keyup.alt.enter="logAge" />
+			<!-- “.alt.enter”的作用是输入后按了“Alt+Enter”键以后才触发 -->
+		</div>
+		
+		<script src="js/app-two.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

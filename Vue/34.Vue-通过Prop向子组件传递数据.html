@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue-通过Prop向子组件传递数据</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h1>
+				Prop 是你可以在组件上注册的一些自定义特性。当一个值传递给一个 prop 特性的时候，它就变成了那个组件实例的一个属性。为了给博文组件传递一个标题，我们可以用一个 props 选项将其包含在该组件可接受的 prop 列表中.
+				一个组件默认可以拥有任意数量的 prop，任何值都可以传递给任何 prop。在上述模板中，你会发现我们能够在组件实例中访问这个值，就像访问 data 中的值一样
+			</h1>
+			
+			<!-- 通过props传递值展示 -->
+			<!-- <blog-post title="华华"></blog-post>
+			<blog-post title="林林"></blog-post> -->
+			
+			<!-- 通过data的绑定的数据展示 -->
+			<!-- <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post> -->
+			
+			<blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
+		</div>
+		
+		<script src="js/vue.js"></script>
+		<script>
+			//自定义组件
+			/* Vue.component('blog-post',{
+				props:['title'],
+				template:'<h3>{{ title }}</h3>'
+			}) */
+			Vue.component('blog-post', {
+				props: ['post'],
+				template:'<div class="blog-post">
+								<h3>{{ post.title }}</h3>
+								<div v-html="post.content"></div>
+						  </div>'
+			})
+			
+			new Vue({
+				el:'#app',
+				data:{
+					posts:[
+						{id:1,title:'华华'},
+						{id:2,title:'林林'}
+					]
+				}
+			})
+		</script>
+		
+	</body>
+</html>

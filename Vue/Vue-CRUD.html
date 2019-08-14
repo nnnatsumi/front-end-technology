@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue-增删改查</title>
+	</head>
+	
+	<body>
+		
+		<div id="app">
+			<table id="heroListTable" border="1px">
+				<thead>
+					<tr>
+						<td>英雄名称</td>
+						<td>英雄年龄</td>
+						<td>删除英雄</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="hero in heros">
+						<td>{{hero.name}}</td>
+						<td>{{hero.age}}</td>
+						<td>
+							<a href="#nowhere" @click="edit(hero)">编辑</a>
+							<a href="#nowhere" @click="delectHero(hero.id)">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							英雄名称:
+              <input type="text"    v-model="hero4Add.name" /><br>
+              年龄：
+              <input type="number"    v-model="hero4Add.age" /><br>
+              <button type="button"  v-on:click="add">增加</button> 
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div id="div4Update">
+				英雄名称:
+        <input type="text"    v-model="hero4Update.name" /><br>
+        血量：
+        <input type="number"    v-model="hero4Update.age" />                       
+        <input type="hidden"    v-model="hero4Update.id" /><br>
+        <button type="button"  v-on:click="update">修改</button>                
+        <button type="button"  v-on:click="cancel">取消</button>  
+			</div>
+		</div>
+		
+	</body>
+	
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		/* div4Update 先隐藏 */
+		$("#div4Update").hide();
+		
+		var data = {
+			heros:[
+						{id:1,name:'林林',age:24},
+						{id:2,name:'华华',age:25},
+						{id:3,name:'木木',age:2}
+					],
+					hero4Add: { id: 0, name: '', age: '0'},
+					hero4Update: { id: 0, name: '', age: '0'},
+			};
+		
+		
+		new Vue({
+			el:'#app',
+			data:data,
+			methods:{
+				/* 增加 */
+				add:function(event){
+					//获取最大的id值
+						//记录的初始最大id
+						var maxId = 3;
+						//计算出最大ID
+						for(var i=0;i<data.heros.length;i++){
+							if(data.heros[i].id>maxId){
+								maxId = data.heros[i].id;
+							}
+						}
+					maxId++;
+					//赋予新id
+					this.hero4Add.id = maxId;
+					//根据姓名字符长度判断是否有字符
+					if(this.hero4Add.name.length==0){
+						this.hero4Add.name = "Hero#"+this.hero4Add.id;
+					}
+					//把对象加入到数组
+					this.heros.push(this.hero4Add);
+					//让hero4Add指向新的对象
+					this.hero4Add = {id:0,name:'',age:'0'};
+				},
+				
+				/* 删除 */
+				delectHero:function(id){
+					console.log("id"+id);
+					for(var i=0;i<this.heros.length;i++){
+						if(this.heros[i].id == id){
+							this.heros.splice(i,1);
+							break;
+						}
+					}
+				},
+				
+				/* 编辑 */
+				edit:function(hero){
+					$("#heroListTable").hide();
+					$("#div4Update").show();
+					this.hero4Update = hero;
+				},
+				
+				/* 更新 */
+				update:function(){
+					//因为v-model，已经同步修改了，所以只需要进行恢复显示就行了
+          $("#heroListTable").show();
+          $("#div4Update").hide();   
+				},
+				
+				/* 取消 */
+				cancel:function(){
+					//其实就是恢复显示
+          $("#heroListTable").show();
+          $("#div4Update").hide();
+				}
+			}
+		})
+	</script>
+	
+</html>

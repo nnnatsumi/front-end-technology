@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-for循环对象数组</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<p v-for="(item,i) in list">id:{{item.id}} ------ 名字:{{item.name}} ------ 索引:{{i}}</p>
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				list: [
+					{id:1 , name:'林林'},
+					{id:2 , name:'华华'},
+					{id:3 , name:'木木'},
+					{id:4 , name:'小林'},
+					{id:5 , name:'小华'}
+				]
+			},
+			methods:{}
+		})
+	</script>
+	
+</html>

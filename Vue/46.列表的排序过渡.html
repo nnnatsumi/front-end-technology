@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>列表的排序过度</title>
+		<style type="text/css">
+			.flip-list-move {
+				transition: transform 1s;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app" class="demo">
+			<h3>
+				'transition-group' 组件还有一个特殊之处。不仅可以进入和离开动画，还可以改变定位。要使用这个新功能只需了解新增的 v-move 特性，它会在元素的改变定位的过程中应用。像之前的类名一样，可以通过 name 属性来自定义前缀，也可以通过 move-class 属性手动设置
+
+				v-move 对于设置过渡的切换时机和过渡曲线非常有用
+			</h3>
+			<button v-on:click="shuffle">Shuffle</button>
+			<transition-group name="flip-list" tag="ul">
+				<li v-for="item in items" v-bind:key="item">
+					{{ item }}
+				</li>
+			</transition-group>
+		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js">
+		</script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data: {
+					items: [1,2,3,4,5,6,7,8,9]
+				},
+				methods: {
+					shuffle: function () {
+					this.items = _.shuffle(this.items)
+					}
+				}
+			})
+		</script>
+		
+	</body>
+</html>

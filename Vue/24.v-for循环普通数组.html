@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-for循环普通数组</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<p v-for="item in list">{{item}}</p>
+			<p v-for="(item,i) in list">索引值：{{i}}，每一项：{{item}}</p>
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				list: [1,2,3,4,5]
+			},
+			methods:{}
+		})
+	</script>
+	
+</html>

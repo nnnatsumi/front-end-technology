@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Css样式绑定</title>
+		<link rel="stylesheet" type="text/css" href="css/style-one.css"/>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	</head>
+	<body>
+		<!-- vue-app是根容器 --> 
+		<div id="vueApp">
+			<h1>动态Css class</h1>
+			
+			<h2>事例1</h2>
+				<!-- <div v-on:click="changeColor = !changeColor" v-bind:class="{changeColor:changeColor}">
+					<span>duanpeihua</span>
+				</div> -->
+			
+			<h2>事例2</h2>
+				<button type="button" v-on:click="changeColor = !changeColor">
+					change Color
+				</button>
+				<button type="button" v-on:click="changeLength = !changeLength">
+					change Length
+				</button>
+				<div v-bind:class="compClasses">
+					<span>duanpeihua</span>
+				</div>
+			
+		</div>
+		<script src="js/app-five.js"></script>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件修饰符</title>
+	</head>
+	
+	<style type="text/css">
+		#inner{
+			width: 100%;
+			height: 100px;
+			background-color: cyan;
+		}
+		#outter{
+			width: 100%;
+			height: 100px;
+			background-color: #FF0000;
+		}
+		#bodyyer{
+			width: 100%;
+			height: 100px;
+			background-color: yellowgreen;
+		}
+	</style>
+	
+	<body>
+		
+		<div id="app">
+			
+			<!-- 
+					.self 事件修饰符：只阻止自己身上的冒泡行为，不会真正阻止冒泡行为
+					.stop 事件修饰符：真正阻止冒泡行为
+			-->
+			
+			
+			
+			<!-- 由于冒泡机制的存在，使得我们点击“dian2”时，不光触发了“dian2”的方法，也在之后紧接着触发了“dian1”的方法：
+					<div id="inner" @click="dian1">
+						<input type="button" value="点击" @click="dian2" />
+					</div>
+			-->
+			
+			<!-- 使用 .stop 事件修饰符，消除冒泡 -->
+			<div id="inner" @click="dian1">
+				<input type="button" value="点击1" @click.stop="dian2" />
+			</div>
+			
+			
+			
+			<!-- 使用 .prevent 事件修饰符，阻止默认行为 -->
+			<a href="http://www.baidu.com" @click.prevent="link">百度</a>
+			
+			
+			
+			<!-- 使用 .capture 添加事件监听器时使用事件捕获模式,即先捕获外层div点击事件，在捕获内层点击事件-->
+			<div id="outter" @click.capture="dian1">
+				<input type="button" value="点击2" @click="dian2"/>
+			</div>
+			
+			
+			
+			<!-- 使用 .self 只有触发它本身的事件才能触发 -->
+			<div id="bodyyer" @click.self="dian1">
+				<input type="button" value="点击3" @click="dian2"/>
+			</div>
+			
+			
+			
+			<!-- 使用 .once 事件修饰符，指触发一次事件处理函数 -->
+			<a href="http://www.baidu.com" @click.prevent.once="link">百度</a>
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				
+			},
+			methods:{
+				dian1(){
+					alert("华华");
+				},
+				dian2(){
+					alert("林林");
+				},
+				link(){
+					console.log("木木")
+				}
+			}
+		})
+	</script>
+	
+</html>

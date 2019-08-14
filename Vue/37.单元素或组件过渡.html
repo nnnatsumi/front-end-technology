@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>单元素/组件过渡</title>
+		<style>
+			.fade-enter-active,
+			.fade-leave-active {
+				transition: opacity .5s;
+			}
+
+			.fade-enter,
+			.fade-leave-to
+			/* .fade-leave-active below version 2.1.8 */
+				{
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="app">
+			<div>
+				<h1>Vue 提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加进入/离开过渡</h1>
+				<ol>
+					<li>条件渲染 (使用 v-if)</li>
+					<li>条件展示 (使用 v-show)</li>
+					<li>动态组件</li>
+					<li>组件根节点</li>
+				</ol>
+			</div>
+			<button v-on:click="show = !show">
+				消失/出现
+			</button>
+			<transition name="fade">
+				<p v-if="show">Love Vue</p>
+			</transition>
+		</div>
+
+		<script src="js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					show: true
+				}
+			})
+		</script>
+
+	</body>
+</html>

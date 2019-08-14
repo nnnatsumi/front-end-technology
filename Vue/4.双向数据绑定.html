@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>双向数据绑定</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="vueApp">
+			<h1>双向数据绑定 / input / select / textarea </h1>
+			
+			<label>姓名：</label>
+			<!-- 方法一：通过“ref”的值以及方法可以实现双向数据绑定 -->
+			<input ref=name type="text" v-on:onkeyup="logName" />
+			<span>{{name}}</span>
+			<!-- 方法二：通过“v-model”绑定要输出的属性，不需要“methods”，也可以实现双向数据绑定 -->
+			<input ref=name type="text" v-model="name"/>
+			<span>{{name}}</span>
+			
+			
+			<!-- 实现方法同上 -->
+			<label>年龄：</label>
+			<input ref=age type="text" v-on:onkeyup="logAge" />
+			<span>{{age}}</span>
+			<input ref=age type="text" v-model="age"/>
+			<span>{{age}}</span>
+		</div>
+		
+		<script src="js/app-three.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

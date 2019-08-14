@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物车实例</title>
+		
+		<!-- 样式 -->
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+			table{
+				border: 1px solid #000000;
+				border-collapse: collapse;
+				border-spacing: 0;
+				empty-cells: show;
+			}
+			th,td{
+				padding: 8px,16px;
+				border: 1px solid #000000;
+				text-align: left;
+			}
+			th{
+				background: darkgray;
+				color: #000000;
+				font-weight: 600;
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 页面 -->
+		<div id="app" v-cloak>
+			<template v-if="list.length">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>商品名称</th>
+							<th>商品单价</th>
+							<th>购买数量</th>
+							<th>操作</th>
+						</tr>
+					<thead>
+					<tbody>
+						<tr v-for="(item,index) in list">
+							<td>{{ index + 1 }}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.price}}</td>
+							<td>
+								<button 
+										@click="handlereduce(index)"
+										:disabled="item.count === 1">    <!-- 使用disabled特性来禁用按钮，不许count小于1 -->
+										-
+								</button>
+										{{item.count}}
+								<button
+										@click="handleAdd(index)">
+									+
+								</button>
+							</td>
+							<td>
+								<button type="button" @click="handleRemove(index)">移除</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					总价：￥{{totalPrice}}
+				</div>
+			</template>
+			<div v-else>
+				购物车为空
+			</div>
+		</div>
+		
+	</body>
+	
+	<!-- Vue实例以及业务代码 -->
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				list:[
+					{
+						id: 1,
+						name: 'iPhone 7',
+						price: 6188,
+						count: 1
+					},
+					{
+						id: 2,
+						name: 'iPad Pro',
+						price: 5888,
+						count: 1
+					},
+					{
+						id: 3,
+						name: 'MacBook Pro',
+						price: 21488,
+						count: 1
+					}
+				]
+			},
+			methods:{
+				//减少数量方法
+				handlereduce(index){
+					if(this.list[index].count === 1){
+						return;
+					}
+					this.list[index].count--;
+				},
+				//增加数量
+				handleAdd(index){
+					this.list[index].count++;
+				},
+				//移除
+				handleRemove(index){
+					this.list.splice(index,1);
+				}
+			},
+			computed:{
+				//计算出总价
+				totalPrice:function(){
+					var total = 0;
+					for(var i = 0;i<this.list.length;i++){
+						var item = this.list[i];
+						total += item.price * item.count;
+					}
+					return total.toString().replace(/\B(?=(\d{3})+$)/g,',');
+				}
+			}
+		})
+	</script>
+	
+</html>

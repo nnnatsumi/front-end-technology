@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-for循环中key属性的使用</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<div>
+				<label>Id:
+					<input type="text" v-model="id" />
+				</label>
+				<label>Name:
+					<input type="text" v-model="name" />
+				</label>
+				<input type="button" value="头部添加" @click="addTou" />
+				<input type="button" value="尾部添加" @click="addWei" />
+			</div>
+			
+			<!-- 注意：
+							1. v-for循环的时候，key属性只能使用 number 或 string
+							2. key在使用的时候，必须使用 v-bind 属性绑定的形式指定 key 的值
+							3. 在组件中，使用 v-for 循环的时候，或者在一些特殊情况中，如果 v-for 有问题，必须在使用 v-for 的同时，指定唯一的 字符串或数字 类型的 :key 值
+			-->
+			<p v-for="item in list" :key="item.id">
+				<input type="checkbox" />{{item.id}} ------ {{item.name}}
+			</p>
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				id: '',
+				name: '',
+				list: [
+					{id:1 , name:'林林'},
+					{id:2 , name:'华华'},
+					{id:3 , name:'木木'},
+					{id:4 , name:'小林'},
+					{id:5 , name:'小华'}
+				]
+			},
+			methods:{
+				addWei(){
+					//尾部添加
+					this.list.push({
+						id: this.id, name: this.name
+					})
+				},
+				addTou(){
+					//头部添加
+					this.list.unshift({
+						id: this.id, name: this.name
+					})
+				}
+			}
+		})
+	</script>
+	
+</html>

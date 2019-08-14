@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <title>VueJs初始化渲染</title>
+      <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+   </head>
+   <body>
+	   
+      <div id = "app" style = "text-align:center;border: #000000 2px solid;">
+         <transition
+            appear
+            appear-class = "custom-appear-class"
+            appear-active-class = "animated bounceIn">
+            <h2>竹杖芒鞋轻胜马</h2>
+         </transition>
+         <transition
+            appear
+            appear-class = "custom-appear-class"
+            appear-active-class = "animated swing">
+            <h2>谁怕？？？</h2>
+         </transition>
+         <transition
+            appear
+            appear-class = "custom-appear-class"
+            appear-active-class = "animated rubberBand">
+            <h2>一蓑烟雨任平生</h2>
+         </transition>
+      </div>
+	  
+	  <script type = "text/javascript" src = "js/vue.js"></script>
+      <script type = "text/javascript">
+         new Vue({
+            el: '#app',
+            data: {
+               show: true
+            }
+         });
+      </script>
+	  
+   </body>
+</html>

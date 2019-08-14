@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue-路由</title>
+		<style>
+			a {
+				text-decoration: none;
+			}
+
+			a.router-link-active {
+				/*   color:blue; */
+				background-color: lightGray;
+			}
+
+			div.menu {
+				border: 1px solid gray;
+				float: left;
+			}
+
+			div.menu a {
+				display: block;
+			}
+
+			div.workingRoom {
+				margin-left: 100px;
+			}
+
+			div#app {
+				width: 500px;
+				padding: 10px;
+				margin: 10px auto;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="app">
+			<div id="menu">
+				<!-- 
+					router-link 相当于就是超链接
+					to 相当于 href
+				-->
+				<router-link to="/user">用户管理</router-link>
+				<router-link to="/product">产品管理</router-link>
+				<router-link to="/order">订单管理</router-link>
+			</div>
+
+			<div class="workingRoom">
+				<!-- 点击上面的 router-link，那么对应的内容就会显示在router-view -->
+				<router-view></router-view>
+			</div>
+		</div>
+
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vue-router.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script>
+		/* 申明三个模板（html片段） */
+		var user = {
+			template: '<p>用户管理页面内容</p>'
+		};
+		var product = {
+			template: '<p>产品管理页面内容</p>'
+		};
+		var order = {
+			template: '<p>订单管理页面内容</p>'
+		};
+
+		/* 定义路由 */
+		var routes = [
+			//这个表示会默认渲染 /user，没有这个就是空白
+			{
+				path: '/',
+				redirect: '/user'
+			},
+			{
+				path: '/user',
+				component: user
+			},
+			{
+				path: '/product',
+				component: product
+			},
+			{
+				path: '/order',
+				component: order
+			}
+		];
+
+		/* 创建VueRouter实例 */
+		var router = new VueRouter({
+			routes: routes
+		});
+
+		/* 给 vue 对象绑定路由 */
+		new Vue({
+			el: "#app",
+			router
+		})
+	</script>
+
+</html>

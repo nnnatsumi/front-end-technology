@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS动画</title>
+		<style type="text/css">
+			.bounce-enter-active {
+				animation: bounce-in .5s;
+			}
+			.bounce-leave-active {
+				animation: bounce-in .5s reverse;
+			}
+			@keyframes bounce-in {
+				0% {
+					transform: scale(0);
+				}
+				50% {
+					transform: scale(1.5);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h1>
+				CSS 动画用法同 CSS 过渡，区别是在动画中 v-enter 类名在节点插入 DOM 后不会立即删除，而是在 animationend 事件触发时删除
+			</h1>
+			<button @click="show = !show">变变变</button>
+			<transition name="bounce">
+				<p v-if="show">
+					竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生
+				</p>
+			</transition>
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					show: true
+				}
+			})
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器的基本使用</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<p>{{ msg | msgFormat('火') }}</p>
+			<p>过滤器调用的时候，采用就近原则。若私有过滤器和全局过滤器名称一致，优先调用私有过滤器</p>
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//定义一个叫做 msgFormat 的 Vue 全局过滤器,第一个参数必须是 msg ,第二个位置可以传参(多个参数)
+		Vue.filter('msgFormat',function(msg,arg){
+			//字符串的 replace 方法,第一个参数不仅可以写 字符串,也可以定义一个正则表达式
+			return msg.replace(/水/g,arg);
+		})
+		
+		new Vue({
+			el:"#app",
+			data:{
+				msg: '抽刀断水水更流'
+			},
+			methods:{},
+			//定义一个私有的过滤器,过滤器有两个私有条件(过滤器名称和处理函数)
+			filters:{
+				msgFormat:function(dateStr,pattern){
+					return msg.replace(/水/g,arg);
+				}
+			}
+		})
+	</script>
+	
+</html>

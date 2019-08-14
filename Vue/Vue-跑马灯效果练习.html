@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>跑马灯</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<input type="button" value="浪起来" @click="start" />
+			<input type="button" value="低调"  @click="stop"/>
+			
+			<h1>{{msg}}</h1>
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		/* 注意：
+						1）在 VM 实例中，若想获取 data 上的数据，或者想调用 methods 上的方法，必须通过 this.数据属性名 或 this.方法名 来进行访问。这里的 this 就表示我们 new 出来的 VM 实例对象。
+						2）VM 实例，会监听自己身上的 data 中所有的数据变化，只要数据发生变化，就会自动把最新的数据从 data 上同步到 V 层。————>好处：程序员只需要关心数据，不需要考虑如何重新渲染页面
+		*/
+		
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"牡丹花下死，做鬼也风流！",
+				intervalId:null              //在 data 中定义定时器的 ID
+			},
+			methods:{
+				/* 跑动起来的方法 */
+				start(){
+					/* ES6 的新写法 */
+					//判断是否启动有定时器
+					if(this.intervalId == null){
+						//没有启动定时器
+						//利用箭头函数,使得箭头函数内部的 this 永远与箭头函数外部的 this 指向一致
+						//使用定时器,让字符串自动拼接赋值
+						this.intervalId = setInterval(() => {
+							//获取到 msg 字符串中的第一个字符
+							var start = this.msg.substring(0,1);
+							//获取到 msg 字符串后面的所有字符
+							var end = this.msg.substring(1);
+							//将重新拼接的字符串重新赋给 msg 
+							this.msg = end + start;
+						},400)
+					}else{
+						//启动了定时器,需要先将这个定时器关闭,在重启一个定时器
+						//调用定制定时器的方法停止此定时器
+						this.stop();
+						//重置 intervalId 的值
+						this.intervalId = null;
+						//重新启动新的定时器
+						this.start();
+					}
+				},
+				
+				/* 停下来的方法 */
+				//停止定时器
+				stop(){
+					clearInterval(this.intervalId);
+				}
+			}
+		})
+	</script>
+	
+</html>

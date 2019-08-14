@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript钩子</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<div style="border: #000000 2px solid;">
+				<h2>在属性中声明JavaScript钩子</h2>
+				<!-- 
+					<transition
+						v-on:before-enter="beforeEnter"
+						v-on:enter="enter"
+						v-on:after-enter="afterEnter"
+						v-on:enter-cancelled="enterCancelled"
+						
+						v-on:before-leave="beforeLeave"
+						v-on:leave="leave"
+						v-on:after-leave="afterLeave"
+						v-on:leave-cancelled="leaveCancelled"
+					>
+					</transition>
+				-->
+				<h4>JS中的写法</h4>
+				<!--
+					// ...
+					methods: {
+					// --------
+					// 进入中
+					// --------
+					
+					beforeEnter: function (el) {
+						// ...
+					},
+					// 当与 CSS 结合使用时
+					// 回调函数 done 是可选的
+					enter: function (el, done) {
+						// ...
+						done()
+					},
+					afterEnter: function (el) {
+						// ...
+					},
+					enterCancelled: function (el) {
+						// ...
+					},
+					
+					// --------
+					// 离开时
+					// --------
+					beforeLeave: function (el) {
+						// ...
+					},
+					// 当与 CSS 结合使用时
+					// 回调函数 done 是可选的
+					leave: function (el, done) {
+						// ...
+						done()
+					},
+					afterLeave: function (el) {
+						// ...
+					},
+					// leaveCancelled 只用于 v-show 中
+					leaveCancelled: function (el) {
+						// ...
+					}
+					}
+				-->
+				<h4>注意：</h4>
+				<ol>
+					<li>当只用 JavaScript 过渡的时候，在 enter 和 leave 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成。</li>
+					<li>推荐对于仅使用 JavaScript 过渡的元素添加 v-bind:css="false"，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响。</li>
+				</ol>
+			</div>
+			<br>
+			<div>
+				<button @click="show = !show">
+					变变变
+				</button>
+				<transition
+					v-on:before-enter="beforeEnter"
+					v-on:enter="enter"
+					v-on:leave="leave"
+					v-bind:css="false"
+				>
+					<p v-if="show">
+						你好，Vue！！！
+					</p>
+				</transition>
+			</div>
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/velocity.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					show: false
+				},
+				methods:{
+					beforeEnter: function (el) {
+						el.style.opacity = 0
+						el.style.transformOrigin = 'left'
+					},
+					enter: function (el, done) {
+						Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+						Velocity(el, { fontSize: '1em' }, { complete: done })
+					},
+					leave: function (el, done) {
+						Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+						Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+						Velocity(el, {
+							rotateZ: '45deg',
+							translateY: '30px',
+							translateX: '30px',
+							opacity: 0
+						}, { complete: done })
+					}
+				}
+			})
+		</script>
+		
+	</body>
+</html>

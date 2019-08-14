@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>class</title>
+		<style type="text/css">
+			.red{
+				color: #FF0000;
+			}
+			.thin{
+				font-size: 200;
+			}
+			.italic{
+				font-style: italic;
+			}
+			.active{
+				letter-spacing: 0.5em;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h1 class="red thin">一蓑烟雨任平生1</h1>
+			
+			<!-- 第一种使用方式，直接传递一个数组，这里的class需要使用v-bind做数据绑定 -->
+			<h1 :class="['thin','italic']">一蓑烟雨任平生2</h1>
+			
+			<!-- 第二种方式，可以在数组中使用三元表达式，实现“激活”的方式 -->
+			<h1 :class="['thin','italic',flag?'active':'']">一蓑烟雨任平生3</h1>
+			
+			<!-- 第三种方式，可以在数组中使用对象的概念，实现“激活”的方式 -->
+			<h1 :class="['red','thin','italic',{'active':hah}]">一蓑烟雨任平生4</h1>
+			
+			<!-- 第四种方式，在为class使用v-bind绑定对象的时候，对象的属性是类名，对象的属性可带引号也可不带引号 -->
+			<h1 :class="{red:true, thin:true, italic:false, active:true}">一蓑烟雨任平生5</h1>
+			<h1 :class="classObj">一蓑烟雨任平生5</h1>
+		</div>
+		
+	</body>
+	
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			new Vue({
+				el:"#app",
+				data:{
+					flag: true,
+					hah: false,
+					classObj: {red:true, thin:true, italic:false, active:true}
+				},
+				methods:{}
+			})
+	</script>
+	
+</html>

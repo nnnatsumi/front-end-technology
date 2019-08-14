@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 首字母大写过滤器 -->
+		<div id="div1">
+			<table align="center">
+				<tr>
+					<td>输入数据</td>
+					<td>过滤后的结果</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<input v-model="data" />
+					</td>
+					<td align="center">
+						{{data|capitalize|capitalizeLastLetter}}
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#div1',
+			data:{
+				data:''
+			},
+			filters:{
+				//首字母大写过滤器:
+				capitalize:function(val){
+					//如果为空,则返回空字符串
+					if(!val){
+						return ''
+					}
+					val = val.toString()
+					return val.charAt(0).toUpperCase()+val.substring(1)
+				},
+				//尾字母大写过滤器
+				capitalizeLastLetter:function(val){
+					//如果为空,则返回空字符串
+					if(!val){
+						return ''
+					}
+					val = val.toString()
+					return val.substring(0,val.length-1)+ val.charAt(val.length-1).toUpperCase()
+				}
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue-for</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="vueApp">
+			<h1>Vue-for循环</h1>
+			<!-- 数组下标 -->
+			<!-- {{character[0]}}
+			{{character[1]}}
+			{{character[2]}} -->
+			
+			<!-- 数组遍历 -->
+			<ul>
+				<li v-for="character in characters">
+					{{character}}
+				</li>
+			</ul>
+			
+			<ul>
+				<li v-for="(user,index) in users">
+					{{index+1}}.{{user.name}} - {{user.age}}
+				</li>
+			</ul>
+			
+			<div v-for="(user,index) in users">
+				<h3>{{index}}.{{user.name}}</h3>
+				<p>Age-{{user.age}}</p>
+			</div>
+			
+			<!-- 优化出现多个Div -->
+			<template v-for="(user,index) in users">
+				<h3>{{index}}.{{user.name}}</h3>
+				<p>Age-{{user.age}}</p>
+			</template>
+			
+			<!-- 从数组“users”中遍历单个“user”对象 -->
+			<template v-for="(user,index) in users">
+				<div v-for="(val,key) in user">
+					<p>{{key}} - {{val}}</p>
+				</div>
+			</template>
+		</div>
+		<script src="js/app-seven.js"></script>
+	</body>
+</html>

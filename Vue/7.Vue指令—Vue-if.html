@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue-if条件语句</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="vueApp">
+			<h1>vue-if条件</h1>
+			<button v-on:click="error = !error">Toggle Error</button>
+			<button v-on:click="success = !success">Toggle Success</button>
+			
+			<p v-if="error">网络连接错误：404</p>
+			<p v-else-if="success">网络连接成功：200</p>
+			
+			<h2>
+				<p>v-if:在dom结构里，显示则占位，不显示则不占位</p>
+				<p>v-show：在dom结构里，无论显示或是不显示均占位</p>
+			</h2>
+			<!-- <p v-show="error">网络连接错误：404</p>
+			<p v-show="success">网络连接成功：200</p> -->
+		</div>
+		
+		<script src="js/app-six.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
