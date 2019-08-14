@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 300px;
+				height: 200px;
+				border: 2px solid #7FFF00;
+				/* 滚动条 */
+				overflow: auto;
+			}
+			input{
+				position: absolute;
+				left: 330px;
+				top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="dv">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+		</div>
+		<input type="button" name="" id="btn" value="显示效果" />
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				/* 
+					my$("btn").onclick = function(){
+						//元素中内容的实际宽度
+						console.log(my$("dv").scrollWidth);
+						//元素中内容的实际高度
+						console.log(my$("dv").scrollHeight);
+						//向左卷曲出去的距离
+						console.log(my$("dv").scrollLeft);
+						//向上卷曲出去的距离
+						console.log(my$("dv").scrollTop); 
+					};
+				*/
+			 
+				//实时获取向上卷曲出去距离的值
+					//div的滚动事件
+					my$("dv").onscroll = function(){
+						console.log(this.scrollTop);
+					};
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+		scroll系列：卷曲
+						系列属性:
+										—————>scrollWidth : 
+																			—————>若有内容，且内容宽度超过元素宽度，则为内容的宽度(没有边框)
+																			—————>若没有内容，或者内容宽度小于元素宽度，就是元素的实际宽度
+										—————>scrollHeight : 
+																			—————>若有内容，且内容高度超过元素高度，则为内容的高度(没有边框)
+																			—————>若没有内容，或者内容高度小于元素高度，就是元素的实际高度
+										—————>scrollLeft : 
+																			—————>向左卷曲出去的距离
+										—————>scrollTop : 
+																			—————>向上卷曲出去的距离
+-->
+					

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//页面加载完毕后
+			window.onload = function(){
+				var time = 5;
+				var timeId = window.setInterval(function(){
+					time--;
+					my$("btn").value = "请仔细阅读协议("+time+")";
+					if(time <= 0){
+						//停止定时器
+						window.clearInterval(timeId);
+						my$("btn").disabled = false;
+						my$("btn").value = "同意";
+					}
+				},1000);
+			};
+		</script>
+	</head>
+	<body>
+		
+		<textarea rows="10" cols="30" name="textarea" id="">
+			竹杖芒鞋轻胜马，一蓑烟雨任平生
+		</textarea>
+		<input type="button" name="" id="btn" value="请仔细阅读协议(5)" disabled />
+		
+	</body>
+</html>

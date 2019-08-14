@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			input{
+				top: 600px;
+			}
+			#dv1{
+				width: 300px;
+				height: 150px;
+				background-color: skyblue;
+				margin-left: 100px;
+				padding-left: 50px;
+				border: 20px solid #000000;
+			}
+			#dv2{
+				width: 150px;
+				height: 75px;
+				background-color: lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="dv1">
+			<div id="dv2">
+			</div>
+		</div>
+		<input type="button" name="" id="btn" value="显示效果" />
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//点击按钮得到dv1的宽和高
+			my$("btn").onclick = function(){
+				console.log(my$("dv2").offsetWidth);
+				console.log(my$("dv2").offsetHeight);
+			};
+		</script>
+	</body>
+</html>
+
+
+<!--三个大的系列：
+								1.offset系列属性:
+													—————>offsetWidth : 元素宽度(含有边框)
+													—————>offsetHeight : 元素高度(含有边框)
+													—————>offsetLeft : 元素左边距
+																								—————>未脱离文档流：
+																															父级元素margin + padding + border以及
+																															自己的margin
+																								—————>脱离文档流：
+																															自己的left和margin
+													—————>offsetTop : 元素顶部边距
+																								—————>未脱离文档流：
+																															父级元素margin + padding + border以及
+																															自己的margin
+																								—————>脱离文档流：
+																															自己的left和margin
+													—————>offsetParent : 元素父元素
+-->

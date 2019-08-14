@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				border: 0;
+			}
+
+			.all {
+				width: 500px;
+				height: 200px;
+				padding: 7px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+				position: relative;
+			}
+
+			.screen {
+				width: 500px;
+				height: 200px;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.screen li {
+				width: 500px;
+				height: 200px;
+				overflow: hidden;
+				float: left;
+			}
+
+			.screen ul {
+				position: absolute;
+				left: 0;
+				top: 0px;
+				width: 3000px;
+			}
+
+			.all ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				line-height: 20px;
+				text-align: center;
+			}
+
+			.all ol li {
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border: 1px solid #ccc;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+
+			.all ol li.current {
+				background: #DB192A;
+			}
+
+			#arr {
+				display: none;
+			}
+
+			#arr span {
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				margin-top: -20px;
+				background: #000;
+				cursor: pointer;
+				line-height: 40px;
+				text-align: center;
+				font-weight: bold;
+				font-family: '黑体';
+				font-size: 30px;
+				color: #fff;
+				opacity: 0.3;
+				border: 1px solid #fff;
+			}
+
+			#arr #right {
+				right: 5px;
+				left: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all" id='box'>
+			<!--相框-->
+			<div class="screen">
+				<!-- 轮播的图片 -->
+				<ul>
+					<li><img src="imagesss/1.jpg" width="500" height="200" /></li>
+					<li><img src="imagesss/2.jpg" width="500" height="200" /></li>
+					<li><img src="imagesss/3.jpg" width="500" height="200" /></li>
+					<li><img src="imagesss/4.jpg" width="500" height="200" /></li>
+					<li><img src="imagesss/5.jpg" width="500" height="200" /></li>
+				</ul>
+				<!-- 右下角的小按钮 -->
+				<ol>
+				</ol>
+			</div>
+			<!-- 左右焦点的按钮 -->
+			<div id="arr">
+				<span id="left">&lt;</span>
+				<span id="right">&gt;</span>
+			</div>
+		</div>
+		
+		<script src="common.js"></script>
+		<script>
+			//获取所有需要的元素
+				//获取最外层的div
+				var box = my$("box");
+					//获取相框
+					var screen = box.children[0];
+						//获取相框宽度
+						var imgWidth = screen.offsetWidth;
+						//获取ul
+						var ulObj = screen.children[0];
+							//获取li
+							var list = ulObj.children;
+						//获取ol
+						var olObj = screen.children[1];
+					//获取左右焦点div
+					var arr = my$("arr");
+				//设置一个全局变量
+				var pic = 0;
+			
+			//自动播放,然后在鼠标进入的时候停止定时器和离开的时候再次开始定时器
+			var timeId = setInterval(clickHandle,2000);
+			
+			//根据li的个数创建小按钮
+				for(var i=0;i<list.length;i++){
+					//创建li标签加入到ol标签下
+					var liObj = document.createElement("li");
+					olObj.appendChild(liObj);
+					liObj.innerHTML = (i+1);
+					//在每个ol中的li标签上添加一个自定义属性,存储索引值
+					liObj.setAttribute("index",i);
+						//注册鼠标进入事件
+						liObj.onmouseover = function(){
+							//改变鼠标进入的li的背景颜色
+								//先干掉所有ol中的li的背景颜色
+								for(var j=0;j<olObj.children.length;j++){
+									olObj.children[j].removeAttribute("class");
+								}
+								//设置当前鼠标进来的li背景颜色
+								this.className = "current";
+							//获取鼠标进入的li当前的索引值，使得图片的移动
+							pic = this.getAttribute("index");
+							//改变ul
+							animate(ulObj,-pic*imgWidth);
+						};
+				}
+					//设置ol中第一个li有背景颜色,根据style的样式打开current,展示按钮样式
+					olObj.children[0].className = "current";
+					
+					
+			//做无缝效果
+				//克隆ul中li标签里的第一个,加入到li的最后
+				ulObj.appendChild(ulObj.children[0].cloneNode(true));
+						
+						
+			//通过pic这个索引值,达到焦点与小按钮同步的效果
+				//鼠标进入div显示焦点,离开div隐藏焦点
+					//显示和隐藏左右焦点的div————>为box注册事件
+						box.onmouseover = function(){
+							arr.style.display = "block";
+							//自动轮播鼠标进入后清楚自动效果
+							clearInterval(timeId);
+						};
+						box.onmouseout = function(){
+							arr.style.display = "none";
+							//自动轮播鼠标离开后再次开始自动效果
+							timeId = setInterval(clickHandle,2000);
+						};
+					//右边的按钮
+					my$("right").onclick = clickHandle;
+					function	clickHandle(){
+						/* 如果pic的值是5,恰巧是ul中li的个数-1的值,此时页面显示第六个图片,而用户会认为
+						这是第一个图,所以,如果用户再次点击按钮,用户应该看到第二个图片 */
+						if (pic == list.length - 1) {
+							//如何从第6个图,跳转到第一个图
+							pic = 0;//先设置pic=0
+							ulObj.style.left = 0 + "px";//把ul的位置还原成开始的默认位置
+						}
+							//立刻设置pic加1,那么此时用户就会看到第二个图片了
+							pic++;
+							//pic从0的值加1之后,pic的值是1,然后ul移动出去一个图片
+							animate(ulObj,-pic*imgWidth);
+						//如果pic==5说明,此时显示第6个图(内容是第一张图片),第一个小按钮有颜色,
+						if (pic == list.length - 1) {
+							//第五个按钮颜色干掉
+							olObj.children[olObj.children.length - 1].className = "";
+							//第一个按钮颜色设置上
+							olObj.children[0].className = "current";
+						} else {
+						//干掉所有的小按钮的背景颜色
+						for (var i = 0; i < olObj.children.length; i++) {
+							olObj.children[i].removeAttribute("class");
+						}
+							olObj.children[pic].className = "current";
+						}
+					};
+					//左边的按钮
+					my$("left").onclick = function(){
+						//通过pic的值来判断图片的位置
+						if(pic == 0){
+							pic = 5;
+							ulObj.style.left = -pic*imgWidth + "px";
+						}
+						//通过pic的值来移动图片
+						pic--;
+						animate(ulObj,-pic*imgWidth);
+						//通过排他功能来实现小按钮的颜色改变
+						for(var i=0;i<olObj.children.length;i++){
+							olObj.children[i].removeAttribute("class");
+						}
+						olObj.children[pic].className = "current";
+					};
+		</script>
+	</body>
+</html>

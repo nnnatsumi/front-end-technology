@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    ul {
+      list-style: none
+    }
+    img {
+      vertical-align: top
+    }
+    .box {
+      width: 730px;
+      height: 454px;
+      margin: 100px auto;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+    .inner {
+      width: 730px;
+      height: 454px;
+      background-color: pink;
+      overflow: hidden;
+      position: relative;
+    }
+    .inner ul {
+      width: 1000%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .inner li {
+      float: left;
+    }
+    .square {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+    .square span {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-color: #fff;
+      text-align: center;
+      line-height: 16px;
+      cursor: pointer;
+    }
+    .square span.current {
+      background-color: orangered;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="box" id="box">
+  <div class="inner"><!--相框-->
+    <ul>
+      <li><a href="#"><img src="images/1.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/2.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/3.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/4.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/5.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/6.jpg" alt=""/></a></li>
+    </ul>
+    <div class="square">
+      <span class="current">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+    </div>
+  </div>
+</div>
+<script src="common.js"></script>
+<script>
+	//获取最外层的div
+	var box = my$("box");
+	//获取相框
+	var inner = box.children[0];
+		//获取相框宽度
+		var innWidth = inner.offsetWidth;
+	//获取ul
+	var ulObj = inner.children[0];
+	//获取所以的span标签
+	var spanObj = inner.children[1].children;
+	
+	//循环遍历所有的span标签,注册鼠标进入事件
+	for(var i=0;i<spanObj.length;i++){
+		//循环的时候把索引值保存在每个span标签的自定义属性里
+		spanObj[i].setAttribute("index",i);
+		//注册鼠标进入事件
+		spanObj[i].onmouseover = function(){
+			//去掉所有的span的背景颜色
+			for(var j=0;j<spanObj.length;j++){
+				//移除每个span的类样式
+				spanObj[j].removeAttribute("class");
+			}
+			//设置当前span的背景颜色
+			this.className = "current";
+			
+			//移动ul(每个图片的宽*鼠标放在这个按钮的索引值)
+				//获取当前鼠标进入的span的索引
+				var index = this.getAttribute("index");
+				animate(ulObj,-index*innWidth);
+		};
+	}
+	
+	//动画函数(设定任意一个元素，移动到指定位置)
+	function	animate(element,target){
+		//为了防止每次点击按钮都会创建定时器,则需要每次调用函数时先清理定时器
+		clearInterval(element.timeId);
+		
+		//设置定时器
+		element.timeId = setInterval(function(){
+			//获取元素的当前位置
+			var current = element.offsetLeft;    //数字类型
+			//设置每次移动的距离
+			var step = 8;
+			//根据"从右往左"还是"从左往右",来判断step的正负
+			step = current<target?step:-step;
+			//每次移动后的位置
+			current += step;
+			
+			//通过比较元素的目标位置和当前位置差的绝对值与每次移动距离的绝对值大小
+			if(Math.abs(target-current)>Math.abs(step)){
+				//没有到达指定位置,改变其left
+				element.style.left = current + "px";
+			}else{
+				//到达指定位置,清理定时器
+				clearInterval(element.timeId);
+				element.style.left = target + "px";
+			}
+		},20);
+	}
+</script>
+</body>
+</html>
+
+

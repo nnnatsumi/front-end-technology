@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 500px;
+				height: 500px;
+				background-color: skyblue;
+				margin-top: 10px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="变宽" />
+		<div id="dv"></div>
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			my$("btn").onclick = function(){
+				//设置一个变量用来进行自加
+				var width = 500;
+				//设置定时器
+				var timeId = setInterval(function(){
+					width += 10;
+					//判断宽度的极限值并停止定时器
+					if(width==1200){
+						clearInterval(timeId);
+					}
+					//获取div改变其宽度
+					my$("dv").style.width = width + "px";
+				},20);
+			};
+		</script>
+		
+	</body>
+</html>

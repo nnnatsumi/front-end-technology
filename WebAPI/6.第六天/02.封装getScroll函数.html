@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//兼容代码1,获取浏览器向上卷曲出去距离的值,向左卷曲出去的距离
+			function getScroll()	{
+				return {
+					//向上卷曲出去的距离写法:
+					top : window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+					//向左卷曲出去的距离写法:
+					left : window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+				};
+			}
+			
+			//测试:浏览器的滚动事件
+			window.onscroll = function(){
+				console.log(getScroll().top);
+			};
+			
+			
+			
+			/* 
+			//兼容代码2,获取浏览器向上卷曲出去距离的值,向左卷曲出去的距离
+			function getScroll()	{
+				//创建一个对象
+				var obj = {
+					//向上卷曲出去的距离写法:
+					top : window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+					//向左卷曲出去的距离写法:
+					left : window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+				};
+				//返回对象obj,以后调用直接使用对象.就行了
+				return obj;
+			} 
+			*/
+			
+			
+			/* 
+			//兼容代码3,获取浏览器向上卷曲出去距离的值,向左卷曲出去的距离
+			function getScroll()	{
+				//创建一个对象
+				var obj = {};
+				//向上卷曲出去的距离写法:
+				obj.top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+				//向左卷曲出去的距离写法:
+				obj.left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+				
+				//返回对象obj,以后调用直接使用对象.就行了
+				return obj;
+			} 
+			*/
+			
+			
+			/* 
+			//兼容代码4,获取浏览器向上卷曲出去距离的值,向左卷曲出去的距离
+			function getScroll()	{
+				//向上卷曲出去的距离写法:
+				var top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+				//向左卷曲出去的距离写法:
+				var left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+				
+				return {top,left};
+			} 
+			*/
+			
+			
+			/* 
+			//兼容代码5,获取浏览器向上卷曲出去距离的值,向左卷曲出去的距离
+			function getScroll()	{
+				//创建一个对象
+				var obj = {};
+				//向上卷曲出去的距离写法:
+				var top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+				//向左卷曲出去的距离写法:
+				var left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+				obj.top = top;
+				obj.left = left;
+				
+				//返回对象obj,以后调用直接使用对象.就行了
+				return obj;
+			} 
+			*/
+			
+			
+			/* 
+			向上卷曲出去的距离写法:
+					1.	var top = window.pageYOffset;
+					2.	var top = document.documentElement.scrollTop;
+					3.	var top = document.body.scrollTop; 
+			*/
+			
+			/* 
+			向左卷曲出去的距离写法:
+					1.	var left = window.pageXOffset;
+					2.	var left = document.documentElement.scrollLeft;
+					3.	var left = document.body.scrollLeft; 
+			*/
+		
+		</script>
+		
+	</body>
+</html>
