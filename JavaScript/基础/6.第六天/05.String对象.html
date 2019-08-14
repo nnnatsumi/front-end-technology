@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/* 字符串对象 */
+				//不可变性(只读)
+					var str = "hello";
+					str[0] = "W";     //可以通过索引读取，不能通过索引来改变值
+					console.log(str);
+				
+					//不同于重新赋值
+					var str1 = "hello";
+					str1 = "hWllo";     //赋值操作,地址指向发生了改变
+					console.log(str1);
+					
+					
+			/* 字符串方法 */
+				// .replace() 以及 .indexOf() 练习
+					var str = "天青色等烟云，而我在等你";
+					if(str.indexOf("云")!=-1){
+						str = str.replace("云","雨");
+					}else{
+						console.log("错了");
+					}
+					console.log(str);
+					
+				//.split() 的练习
+				var str = "段誉|萧峰|虚竹|张无忌|张三丰|赵敏";
+				var arr = str.split("|");
+				for(var i=0;i<arr.length;i++){
+					console.log(arr[i]);
+				}
+				
+				
+			/* 字符串案例 */
+				//案例一
+					var str	= "我爱最帅的杨哥,太帅了";
+					//先获取要截取的字符串的索引的位置
+					var index = str.indexOf("杨哥");
+					//从指定的位置开始向后截取两个
+					str = str.substr(index,2);
+					console.log(str);
+					
+				//案例二:找到这个字符串中所有o的位置
+					var str2 = "hello oh wo ohehe";
+					var index1 = 0;     //开始的位置
+					var key = "o";     //要找的字符串
+					while((index1 = str2.indexOf(key,index1))!=-1){     //如果是-1的情况,说明找完了
+						console.log(index1);
+						index1 += key.length;
+					}
+					
+				//案例三:找到这个字符串中每个字符串出现了多少次
+					var str3 = "dnaKjdiJornCldkODHTkopj";
+					//第一步:将字符串的大小写统一
+					str3 = str3.toLocaleLowerCase();
+					//第二步:创建一个空对象,目的:把字母作为键,次数作为值
+					var obj = {};
+					//第三步:遍历字符串,获取每个字母
+					for(var i=0;i<str3.length;i++){
+						//判断obj对象中有没有这个字母(键)
+						var key = str3[i];            //每个字母
+						if(obj[key]){          //判断obj中有没有这个键
+							//对象中有这个字母了
+							obj[key]++;
+						}else{
+							//对象中没有这个字母,将字母添加到对象中并添加次数,默认为1
+							obj[key] = 1;
+						}
+					}
+					//第四步:遍历对象，显示每个每个字母的次数
+					for(var key in obj){
+						console.log(key+"这个字母出现了"+obj[key]+"次");
+					}
+					
+					
+			/* 判断对象里是否有想找的属性,直接放在"if()"里判断 */
+				//将 对象["属性名字"] 放在 if 中判断即可
+				var obj = {
+					"sex":"男"
+				};
+				if(obj["sex"]){
+					console.log("有");
+				}else{
+					console.log("没有");
+				}
+				if(obj["age"]){
+					console.log("有");
+				}else{
+					console.log("没有");
+				}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!--
+	String对象：是一个用于字符串或一个字符序列的构造函数 
+		string ————> 字符串类型 ————> 基本类型
+		String ————> 字符串类型 ————> 引用类型(复杂类型)
+		
+		字符串的特性：
+			   不可变性 ————> 字符串的值是不能改变的
+			           ————> 字符串的值之所以看起来变了，是因为指向变了，并非值的改变
+		
+		字符串可以看成是数组，所以可以使用for循环进行遍历
+		
+	
+	String对象下的方法：
+			字符串常用的属性：
+				.length ————> 返回字符串的长度
+				.charAt(索引) ————> 返回指定索引位置的字符串，超出索引，结果为空字符串
+				.fromCharCode(数字, ... ,数字) ————> 返回的是ASCII码对应的字符
+				.concat(字符,...,字符串) ————> 返回将多个字符或字符串与原字符串进行拼接
+				.indexOf(要找的字符串,开始索引位置) ————> 返回要索引字符串的索引下标，没找到返回-1
+				.replace(旧字符串,新字符串) ————> 替换字符串使用
+				.slice(索引位置1,索引位置2) ————> 返回从索引位置1开始提取到索引位置2前一个
+				.split(要删除掉的字符串,索引下标) ————> 返回索引下标之前的且删掉字符串后留下的字符串
+				.substr(开始提取的位置,提取的长度) ————> 返回提取位置开始提取长度的字符串
+				.substring(开始位置，结束位置) ————> 返回从开始位置到结束位置之前间的字符串
+				.toLocaleLowerCase() 或 .toLowerCase() ————> 这两个都返回的是小写
+				.toLocaleUpperCase() 或 .toUpperCase() ————> 这两个都返回的是大写
+				.trim() ————> 返回的字符串已经删除了两端的空格
+	
+	
+	针对强类型语言：
+				字符与字符串的关系：
+						字符是由用单引号括起来的单一字符；
+						字符串是由双引号括起来的多个多个字符组成的
+	针对弱类型语言：
+				但是在JS里，无论是单引号还是双引号括起来的都属于字符串
+				
+				
+	实例方法：必须通过new的方式创建的对象(实例对象)来调用的方法
+	静态方法：直接通过大写的构造函数的名字调用的方法(直接通过大写的对象名字调用的)
+-->

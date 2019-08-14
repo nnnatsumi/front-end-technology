@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//求100-200之间所有奇数的和(用continue)
+			var sum = 0;
+			var i = 100;
+			while (i <= 200) {
+				//判断是不是偶数
+				if (i % 2 == 0) {
+					//如果是偶数则要跳过
+					i++;
+					continue;
+				}
+				sum += i;
+				i++;
+			}
+			console.log(sum);
+
+
+			//求1-100所有累加和,但碰到个位为3的数都跳过
+			var sum = 0;
+			for (var k = 1; k <= 100; k++) {
+				if (k % 10 == 3) { //个位数为3:只需要让k取到的值对10取余,是的余数为3即可
+					continue;
+				}
+				sum += k;
+			}
+			console.log(sum);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- continue关键字：
+				在循环中若果遇到这个关键字，后面不执行，直接开始下一个循环 
+-->

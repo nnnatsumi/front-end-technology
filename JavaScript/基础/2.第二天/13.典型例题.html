@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//本金10000元存入银行,年利率是千分之三,每过一年,将本金和利息相加作为新的本金.计算五年后获得的本金是多少
+			var money = 10000; //本金
+			var rate = 0.003;
+			for (var i = 1; i <= 5; i++) {
+				money += money * rate;
+			}
+			console.log(money);
+
+
+			//求斐波那契数列第十二个月的值
+			/* 有个人想知道,一年之内一对儿兔子能繁殖多少对。已知一对儿兔子每个月可以生一对儿兔子,
+			而一对儿兔子从出生起第三个月开始可以每个月生一对儿兔子,加入一年内没有兔子死亡,那么,
+			一对儿兔子一年内可以繁殖成多少对兔子？（规律数列：1，1，2，3，5，8，13，21） */
+			//每个月的值就是前俩个月的值相加
+			var num1 = 1;
+			var num2 = 1;
+			var sum = 0;
+			for (var i = 3; i <= 12; i++) {
+				sum = num1 + num2;
+				num1 = num2;
+				num2 = sum;
+			}
+			console.log(sum);
+		</script>
+
+	</head>
+	<body>
+	</body>
+</html>

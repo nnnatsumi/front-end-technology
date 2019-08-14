@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//画五个星星
+			for (var j = 0; j < 5; j++) {
+				document.write("★");
+			}
+			document.write("<br />");
+
+			//画五行,每行五个
+			for (var i = 0; i < 5; i++) { //控制行数
+				for (var j = 0; j < 5; j++) { //控制每行个数
+					document.write("★");
+				}
+				document.write("<br />"); //控制换行
+			}
+
+			//画三角形
+			for (var k = 0; k <= 5; k++) {
+				for (var l = 0; l < k; l++) { //控制了每一行星星的递加
+					document.write("★");
+				}
+				document.write("<br />");
+			}
+			document.write("<br />");
+
+			//乘法口诀表
+			for (var q = 1; q <= 9; q++) { //控制行数
+				for (var w = 1; w <= 9; w++) { //控制每行个数
+					document.write(q + "*" + w + "=" + q * w);
+				}
+				document.write("<br />"); //控制换行
+			}
+			document.write("<br />");
+
+			//三角形乘法口诀表
+			for (var q = 1; q <= 9; q++) { //控制行数
+				for (var w = 1; w <= q; w++) { //控制每行个数
+					document.write(q + "*" + w + "=" + q * w);
+				}
+				document.write("<br />"); //控制换行
+			}
+			document.write("<br />");
+
+			//表格版本的乘法口诀表,需要理解
+			document.write("<table border='1' cellpadding='1' cellspacing='1'>");
+			for (var t = 1; t <= 9; t++) {
+				document.write("<tr>");
+				for (var u = 1; u <= t; u++) {
+					document.write("<td>");
+					document.write(t + "*" + u + "=" + t * u);
+					document.write("<td>");
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//通过函数求两个数的差
+			function cha(x, y) {
+				return x - y;
+			}
+			console.log(cha(3, 2));
+
+			//通过函数求一个数组中的最大值
+			function maxArray(arr) {
+				//定义变量,假设这个变量存的是最大值
+				var max = arr[0];
+				for (var i = 0; i < arr.length; i++) {
+					if (max < arr[i]) {
+						max = arr[i];
+					}
+				}
+				return max;
+			}
+			var arr = [2, 4, 6, 2, 45, 14, 7];
+			var max = maxArray(arr);
+			//var max = maxArray(arr = [2, 4, 6, 2, 45, 14, 7]);
+			console.log(max);
+
+			//通过函数求一个数组中的最小值
+			function minArray(arr) {
+				//定义变量,假设这个变量存的是最小值
+				var min = arr1[0];
+				for (var i = 0; i < arr1.length; i++) {
+					if (min > arr1[i]) {
+						min = arr1[i];
+					}
+				}
+				return min;
+			}
+			var arr1 = [2, 4, 6, 2, 45, 14, 7];
+			var min = minArray(arr1);
+			//var min = minArray(arr1 = [2, 4, 6, 2, 45, 14, 7]);
+			console.log(min);
+
+			//通过函数求一组数字的和
+			function sumNum(arr2) {
+				var sum = 0;
+				for (var i = 0; i < arr2.length; i++) {
+					sum += arr2[i];
+				}
+				return sum;
+			}
+			var arr2 = [2, 4, 0, 1, 5, 3, 6];
+			console.log(sumNum(arr2));
+
+			//通过函数求一组数中的最大值和最小值以及和
+			function getArray(array) {
+				var min = array[0]; //最小值
+				var max = array[0]; //最大值
+				var sum = 0; //求和
+				for (var i = 0; i < array.length; i++) {
+					sum += array[i]; //求和
+					if (max < array[i]) { //求最大值
+						max = array[i];
+					}
+					if (min > array[i]) { //求最小值
+						min = array[i];
+					}
+				}
+				var arr = [min, max, sum];
+				return arr;
+			}
+			var result = getArray([2, 4, 6, 7, 1, 45, 5]);
+			console.log("最小值:" + result[0]);
+			console.log("最大值:" + result[1]);
+			console.log("和:" + result[2]);
+
+			//通过函数实现数组反转
+			function reverseArray(arr3) {
+				for (var i = 0; i < arr3.length / 2; i++) {
+					var temp = arr3[i];
+					arr3[i] = arr3[arr3.length - 1 - i];
+					arr3[arr3.length - 1 - i] = temp;
+				}
+				return arr3;
+			}
+			console.log(reverseArray([1, 2, 3, 4, 5, 6]));
+
+			//通过函数实现冒泡排列
+			function sortArray(arr) {
+				for (var i = 0; i < arr.length - 1; i++) { //循环控制比较轮数
+					for (var j = 0; j < arr.length - 1 - i; j++) { //循环进行多次比较
+						if (arr[j] > arr[j + 1]) {
+							var temp = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = temp;
+						}
+					}
+				}
+				return arr;
+			}
+			console.log(sortArray([2, 4, 33, 51, 21, 85, 5]));
+
+
+			function getJieCheng(x) {
+				var result = 1;
+				for (var i = 1; i < x; i++) {
+					result *= i;
+				}
+				return result;
+			}
+			console.log(getJieCheng(5));
+
+			//通过函数求一个数字的阶乘和
+			function getJieChengSum(num) {
+				var sum = 0;
+				for (var i = 1; i <= num; i++) {
+					sum += getJieCheng(i); //此处通过调用上面的求一个数字阶乘的方法(函数内部可以调用其他函数)
+				}
+				return sum;
+			}
+			console.log(getJieChengSum(2));
+
+			//通过函数求斐波那契数列
+			function getFib(x) {
+				var num1 = 1;
+				var num2 = 1;
+				var sum = 0;
+				for (var i = 3; i <= x; i++) {
+					sum = num1 + num2;
+					num1 = num2;
+					num2 = sum;
+				}
+				return sum;
+			}
+			console.log(getFib(12));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

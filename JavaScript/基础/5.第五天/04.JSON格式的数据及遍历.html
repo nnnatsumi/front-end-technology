@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var json = {
+				"name":"小明",
+				"age":"10",
+				"sex":"男"
+			}
+			//遍历对象,可以通过"for-in"循环
+			for(var key in json){       //key:变量     json:对象
+				console.log(key);        //key中存储的是json对象中的属性的名字
+				console.log(json[key]);    //通过“json[]”,将值获取出来
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!--
+	JSON格式的数据:
+				  一般都是成对儿的，是键值对儿
+				  
+	JSON也是一个对象，数据都是成对儿的，一般JSON格式的数据无论是键还是值都是双括号括起来的
+	
+	遍历对象是不能通过for循环遍历的，无序；可以通过"for-in"循环
+-->

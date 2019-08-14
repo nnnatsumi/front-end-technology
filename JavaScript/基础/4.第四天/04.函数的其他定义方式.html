@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//函数表达式
+			var f1 = function() {
+				console.log("我是匿名函数，我要想被调用，就得赋给f1这个变量！")
+			}
+			f1();
+
+			//函数的自调用
+			(function() {
+				console.log("啦啦啦");
+			})
+			();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+	命名函数：函数有名字
+	
+	匿名函数：函数没有名字
+	
+	函数的另一种定义方式：
+					   函数表达式:
+								 把一个函数赋给一个变量
+								 
+	函数的自调用：(一次性的调用)
+				表达式：
+					  (function (){
+							console.log();
+					  })
+					  ();
+								 
+	注意：
+		1.函数表达式赋值结束后，要加分号
+		2.函数声明：重名的情况下，后面的会覆盖前面的
+		  函数表达式：在哪里调用，就运行哪里的函数输出
+ -->

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//请输出十次:哈哈,我又变帅了
+			var i = 0;
+			while (i < 10) {
+				console.log("哈哈，我又变帅了");
+				i++;
+			}
+
+			//计算1-100所有数字的和
+			var j = 1;
+			var sum = 0;
+			while (j <= 100) {
+				sum += j;
+				j++;
+			}
+			console.log(sum);
+
+			//求6的阶乘
+			var k = 1;
+			var multiplication = 1;
+			while (k < 7) {
+				multiplication *= k;
+				k++;
+			}
+			console.log(multiplication);
+
+			//求1-100之间所有偶数的和
+			var l = 1;
+			var sum = 0;
+			while (l <= 100) {
+				if (l % 2 == 0) {
+					sum += l;
+				}
+				l++;
+			}
+			console.log(sum);
+
+			//求1-100之间所有奇数的和
+			var m = 1;
+			var sum = 0;
+			while (m <= 100) {
+				if (m % 2 != 0) {
+					sum += m;
+				}
+				m++;
+			}
+			console.log(sum);
+
+			//求出1-100所有能被7整除的数
+			var n = 1;
+			while (n <= 100) {
+				if (n % 7 == 0) {
+					console.log(n);
+				}
+				n++;
+			}
+
+			//求账号和密码是否一致,登陆的效果实现
+			var userName = prompt("请您输入账号");
+			var userPwd = prompt("请您输入密码");
+			while (userName != "admin" || userPwd != "1212") {
+				userName = prompt("请您输入账号");
+				userPwd = prompt("请您输入密码");
+			}
+			console.log("登陆成功")
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+	while循环：
+			 语法：
+				 计数器
+				 var 变量 = 0；
+				 while(循环条件){
+					 循环体；
+					 计数器++；
+				 }
+			 执行过程：
+					变量满足循环条件，则执行循环体和计数器，然后再次回到循环条件进行判断，如此重复循环，
+					直到不再满足循环条件则跳出语句。
+					
+	while循环特点：
+				先判断，后循环，有可能一次循环体都不执行
+-->

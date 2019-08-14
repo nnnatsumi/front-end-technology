@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function f1() {
+				return function() {
+					console.log("haha");
+				}
+			}
+
+			var ff = f1();
+			ff();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+	函数可以作为返回值使用
+-->

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//求数组中所有元素的和
+			var arr1 = [1, 2, 3, 4, 5];
+			var sum1 = 0;
+			for (var i = 0; i < arr1.length; i++) {
+				sum1 += arr1[i];
+			}
+			console.log(sum1);
+
+
+			//求数组中所有元素的平均值
+			var arr2 = [1, 2, 3, 4, 5];
+			var sum2 = 0;
+			for (var i = 0; i < arr2.length; i++) {
+				sum2 += arr2[i];
+			}
+			console.log(sum2 / arr2.length);
+
+
+			//求数组中所有元素的最大值
+			var arr3 = [5, 2, 5, 7, 9, 0, 1];
+			var max = arr3[0]; //假设max中存储的是最大值
+			for (var i = 0; i < arr3.length; i++) {
+				if (max < arr3[i]) { //判断max里的值与数组中的值是不是最大值
+					max = arr3[i];
+				}
+			}
+			console.log("最大值：" + max);
+
+
+			//求数组中所有元素的最小值
+			var arr4 = [5, 2, 5, 7, 9, 0, 1];
+			var min = arr4[0]; //假设max中存储的是最小值
+			for (var i = 0; i < arr4.length; i++) {
+				if (min > arr4[i]) { //判断min里的值与数组中的值是不是最小值
+					min = arr4[i];
+				}
+			}
+			console.log("最小值：" + min);
+
+
+			//倒序循环遍历数组
+			var arr5 = [1, 2, 3, 4, 5];
+			for (var i = arr5.length - 1; i >= 0; i--) {
+				console.log(arr5[i]);
+			}
+
+
+			//把数组中所有元素用|符号拼接到一起产生一个字符串并输出
+			var names = ["我", "是", "庸", "人", "不", "自", "扰"];
+			var str = "";
+			for (var i = 0; i < names.length - 1; i++) {
+				str += names[i] + "|";
+			}
+			console.log(str + names[names.length - 1]);
+
+
+			//去掉数组中重复的0,把其他数据放在一个新的数组中
+			var arr6 = [1, 0, 2, 0, 3, 0, 4, 0, 5];
+			var newArr = [];
+			for (var i = 0; i < arr6.length; i++) {
+				if (arr6[i] != 0) {
+					newArr[newArr.length] = arr6[i];
+				}
+			}
+			console.log(newArr);
+
+
+			//反转数组:把数组中的数据位置调换
+			var arr7 = [1, 2, 3, 4, 5, 6, 7];
+			for (var i = 0; i < arr7.length / 2; i++) { //循环的目的是控制交换的次数
+				var tem = arr7[i]; //先把第一个元素的值放在第三方变量中
+				arr7[i] = arr7[arr7.length - 1 - i];
+				arr7[arr7.length - 1 - i] = tem;
+			}
+			console.log(arr7);
+
+
+			//提示用户输入班级人数,求总成绩,平均值,最高分,最低分
+			var perCount = parseInt(prompt("请输入班级人数")); //提示用户输入人数,并转成数字类型
+			var perScores = []; //定义数组存储班级每个人的成绩
+			for (var i = 0; i < perCount; i++) { //循环的方式录入每个人的成绩
+				perScores[perScores.length] = parseInt(prompt("请输入第" + (i + 1) + "个人的成绩："));
+			}
+
+			var sum1 = 0; //求总成绩
+			for (var i = 0; i < perScores.length; i++) {
+				sum1 += perScores[i];
+			}
+			console.log(sum1);
+
+			console.log(sum1 / perScores.length) //求平均值
+
+			var max1 = perScores[0]; //最大值
+			for (var i = 0; i < perScores.length; i++) {
+				if (max1 < perScores[i]) {
+					max1 = perScores[i];
+				}
+			}
+			console.log("最大值：" + max1);
+
+			var min1 = perScores[0]; //最小值
+			for (var i = 0; i < perScores.length; i++) {
+				if (min1 > perScores[i]) {
+					min1 = perScores[i];
+				}
+			}
+			console.log("最小值：" + min1);
+
+
+			//冒泡排序:把所有的数据按一定的顺序进行排列(从小到大，从大到小)
+			var arr8=[5,25,7,1,0,55]
+			for(var i=0;i<arr8.length-1;i++){     //循环控制比较的轮数
+				for(var j=0;j<arr8.length-1-i;j++){     //控制每一轮比较的次数
+					if(arr8[j]>arr8[j+1]){
+						var tem=arr8[j];
+						arr8[j]=arr8[j+1];
+						arr8[j+1]=tem;
+					}
+				}
+			}
+			console.log(arr8);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

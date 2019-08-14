@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//练习一：获取成绩的级别,显示相应的分数区间
+			var level = "C";
+			switch (level) {
+				case "A":
+					console.log("90-100");
+					break;
+				case "B":
+					console.log("80-90");
+					break;
+				case "C":
+					console.log("70-80");
+					break;
+				case "D":
+					console.log("60-70");
+					break;
+				default:
+					console.log("不及格");
+			}
+
+			//练习二：根据月份显示对应的天数
+			var month = parseInt(prompt("请输入月份"));
+			if (month >= 1 && month <= 12) {
+				switch (month) {
+					case 1:
+						console.log("31");
+						break;
+					case 2:
+						console.log("28");
+						break;
+					case 3:
+						console.log("31");
+						break;
+					case 4:
+						console.log("30");
+						break;
+					case 5:
+						console.log("31");
+						break;
+					case 6:
+						console.log("30");
+						break;
+					case 7:
+						console.log("31");
+						break;
+					case 8:
+						console.log("31");
+						break;
+					case 9:
+						console.log("30");
+						break;
+					case 10:
+						console.log("31");
+						break;
+					case 11:
+						console.log("30");
+						break;
+					case 12:
+						console.log("31");
+						break;
+				}
+			} else {
+				console.log("请输入正确的月份");
+			}
+
+
+			//练习二:优化
+			var month = parseInt(prompt("请输入月份"));
+			if (month >= 1 && month <= 12) {
+				switch (month) {
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12:
+						console.log("31");
+						break;
+
+					case 2:
+						console.log("28");
+						break;
+
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						console.log("30");
+						break;
+				}
+			} else {
+				console.log("请输入正确的月份");
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+	switch-case语句：多分支语句
+				   语法：
+						switch(表达式){
+							case 值1:代码1;break;
+							case 值2:代码2;break;
+							case 值3:代码3;break;
+							...
+							defalt:代码4;
+						}
+					执行过程：
+							判断表达式，获取结果，依此与case的值比较，找到相同的则执行其后的代码块，不同的则向下继续查找，
+							否则直接执行代码4。遇到break，则直接跳出整个语句。
+							
+	switch-case语句与case后面的值比较是用的“严格比较”，即比较类型也比较值
+	
+	一般是对具体的值进行判断
+-->

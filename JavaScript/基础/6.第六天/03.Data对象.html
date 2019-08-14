@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//创建实例对象
+				var dt = new Date();
+				//当前时间
+				console.log(dt);
+			
+			//创建实例对象2
+				var dt2 = new Date("2018-12-12");
+				var dt3 = new Date("2018/12/12");
+				//若传值为字符串类型,则输出传入时间
+				console.log(dt2);
+				console.log(dt3);
+				
+			//创建实例对象:获取时间(毫秒数)
+				var dt4 = Date.now();
+				console.log(dt4);
+				
+			//创建实例对象:一种特殊写法,只适用于这个Date的对象(适用于不支持H5的浏览器)
+				var dt7 =+ new Date();
+				console.log(dt7);
+				
+			//实例综合练习
+				var dt5 = new Date();
+				//获取年份
+				console.log(dt5.getFullYear());
+				//获取月份
+				console.log(dt5.getMonth()+1);    //国内月份需要加1
+				//获取星期
+				console.log(dt5.getDay()+1);    //星期是从0开始的
+				//获取日期
+				console.log(dt5.getDate());
+				//获取小时
+				console.log(dt5.getHours());
+				//获取分钟
+				console.log(dt5.getMinutes());
+				//获取秒
+				console.log(dt5.getSeconds());
+				
+			//使用"toString()"将时间转化成字符串,以及其他例子
+				var dt6 = new Date();
+				console.log(dt6.toString());
+				console.log(dt6.toDateString());     //英文的日期
+				console.log(dt6.toLocaleDateString());     //数字格式日期
+				console.log(dt6.toTimeString());     //小时分钟秒
+				console.log(dt6.toLocaleTimeString())     //小时分钟秒
+				console.log(dt6.valueOf())     //毫秒值
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+<!-- Date对象：创建Date实例，用来处理日期和时间。它是基于1970年1月1日起的毫秒数 -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//声明变量并初始化/变量的初始化/声明变量并赋值
+			//声明一个num变量并存储一个数字10
+			var num = 10;
+			//输出这个变量的值
+			alert(num); //弹框
+			console.log(num); //在浏览器控制台输出
+
+			//声明多个变量然后一个一个赋值
+			var num1, num2, num3;
+			num1 = 1;
+			num2 = 2;
+			num3 = 3;
+
+			//声明多个变量然后一个一个赋值
+			var num4 = 4,
+				num5 = 5,
+				num6 = 6;
+		</script>
+
+		<script type="text/javascript">
+			//变量的交换第一个思路:使用第三方变量交换
+			var num1 = 100;
+			var num2 = 200;
+			var temp = num1; //把num1里面的值取出放在temp中
+			num1 = num2; //把num2里面的值取出放在num1中
+			var num2 = temp; //把temp里面的值取出放在num2中
+
+			//变量的交换第二个思路:一般适用于数字的交换
+			var num3 = 300;
+			var num4 = 400;
+			num3 = num3 + num4; //将两个变量的值取出相加,重新赋给num3,得700
+			num4 = num3 - num4; //将两个变量的值取出相减,重新赋给num4,得300
+			num3 = num3 - num4; //将两个变量的值取出相加,重新赋给num3,得400
+
+			//拓展变量的交换(位运算-->C语言):只需要看代码,不需要理解
+			var num1 = 10;
+			var num2 = 20;
+			num1 = num1 ^ num2;
+			num2 = num1 ^ num2;
+			num1 = num1 ^ num2;
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+<!-- 
+	变量：
+		1.JS中存储数据使用变量的方式（名字，值/数据）
+		2.JS中声明变量都用"var"————>存储数据，数据有对应的数据类型
+		3.JS中的字符串类型的值都是在双引号或者单引号里
+				例子：	存储一个数字10 ————> var num=10;
+						存储一个名字————> var name="小黑";
+		4.变量的作用：
+					存储数据（存储/读取）
+		5.变量声明（有var，有变量名字，没有值）：
+											声明方式：var 变量名字;
+		6.变量初始化（有var，有变量名字，有值）:
+											初始化方式：var 变量名字=值；
+											例子：var number=10;
+												  var name="xiaohei";
+												  var flag=true;
+												  var nll=null;
+												  var obj=new object();
+						 
+	变量名命名规范：
+			1.要有意义
+			2.有一定的规则：一般以字母/$符号/下划线开头，中间或者后面有$符号/字母/数字
+			3.一般都是小写的（只有国际认可的为大写）
+			4.若为多个字母，则首单词首字母为小写，后面的每个单词的首字母均为大写，此为“驼峰命名法”
+			5.不能使用关键字（系统自带的单词不能使用）
+			6.不会单词用拼音，拼音也遵循“驼峰命名法”
+	
+	变量的交换：
+			
+ -->

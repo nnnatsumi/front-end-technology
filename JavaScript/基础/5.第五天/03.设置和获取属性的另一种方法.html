@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(name, age) {
+				this.name = name;
+				this.age = age;
+				this.say = function() {
+					console.log("喜欢玩游戏");
+				};
+			}
+			var obj = new Person();
+			obj["name"] = "佐助";
+			obj["age"] = 18;
+			obj["say"]();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+	可以用点语法：对象中确实有：属性对象.属性名字  或者  对象[属性名字]
+	用[]：对象中没有
+-->

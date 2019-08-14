@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/* 调用系统的构造函数创建对象(实例化对象) */
+				//创建对象obj
+					var obj = new Object();
+
+					//添加属性——————>对象.名字=值
+					obj.name = "华华";
+					obj.age = 24;
+					obj.sex = "男";
+					//添加方法——————>对象.名字=函数
+					obj.eat = function() {
+						console.log("我喜欢吃西红柿");
+					};
+					obj.play = function() {
+						console.log("我喜欢画画");
+					};
+				
+					//获取
+					console.log(obj.name);   //属性的获取
+					console.log(obj.age);
+					console.log(obj.sex);
+					obj.eat();   //方法的调用
+					obj.play();
+				
+				//练习：创建对象dog
+					var dog = new Object();
+					dog.name = "大黄";
+					dog.color = "黄色";
+					dog.age = 3;
+					dog.weight = 250;
+					dog.run = function() {
+						console.log("每次走路都很慢");
+					};
+					dog.eat = function() {
+						console.log("爱吃大骨头");
+					};
+					
+					console.log(dog.name);
+					console.log(dog.age);
+					console.log(dog.color);
+					console.log(dog.weight);
+					dog.run();
+					dog.eat();
+					
+				//练习:创建对象phone
+					var phone = new Object();
+					phone.type = "诺基亚7Plus";
+					phone.color = "黑色";
+					phone.use = function() {
+						console.log("可以打电话和发短信");
+					};
+					
+					
+			/* 工厂模式创建对象 */
+				//一次性创建多个不同对象
+					function creatObject(name,age) {
+						var person = new Object();
+						
+						//添加属性
+						person.name = name;
+						person.age = age;
+						
+						//添加方法
+						person.say = function() {
+							console.log("我叫："+this.name+"我今年："+this.age);
+						};
+						return person;
+					}
+					
+					//创建对象1
+					var per1 = creatObject("华华",24);
+					per1.say();
+					
+					//创建对象2
+					var per2 = creatObject("林林",23);
+					per2.say();
+					
+					
+			/* 自定义构造函数创建对象 */
+				//自己定义一个构造函数来创建对象
+					function Person(name,age) {
+						this.name = name;
+						this.age = age;
+						this.sayHi = function () {
+							console.log("我叫："+this.name+",我今年："+this.age);
+						};
+					}
+					//自定义构造函数创建对象
+					var human = new Person("华华",24);
+					console.log(human.name);
+					console.log(human.age);
+					human.sayHi();
+				
+					var human2 = new Person("林林",23);
+					console.log(human2.name);
+					console.log(human2.age);
+					human2.sayHi();
+				
+					//判断类型
+					console.log(human instanceof Person);
+					console.log(human2 instanceof Person);
+				
+				//创建一个图片对象
+					function Picture(weight,height,size) {
+						this.weight = weight;
+						this.height = height;
+						this.size = size;
+						this.show = function () {
+							console.log("可以展示宽:"+this.weight+",高:"+this.height+",大小为:"+this.size+"M的内容图片");
+						};
+					}
+					var pic = new Picture(500,300,3);
+					console.log(pic.weight);
+					console.log(pic.height);
+					console.log(pic.size);
+					pic.show();
+					
+					
+			/* 字面量的方式创建对象 */
+				//创建对象华华
+					var huahua = {};     //空对象
+					//添加属性
+					huahua.name = "华华";
+					huahua.age = 24;
+					//添加方法
+					huahua.say = function() {
+						console.log("我是:"+this.name+",我今年:"+this.age+"岁");
+					};
+					//调用
+					huahua.say();
+					
+				//————>优化后的写法：
+					var linlin = {
+						name:"林林",
+						age:23,
+						say: function() {
+							console.log("我是:"+this.name+",我今年:"+this.age+"岁");
+						},
+						eat: function() {
+							console.log("我爱吃鸭鸭");
+						}
+					};
+					linlin.say();
+					linlin.eat();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!--
+	创建对象的三种方式：
+					 1.调用系统的构造函数创建对象(实例化一个对象)
+							——————>Object是系统的构造函数
+					 2.自定义构造函数创建对象(结合第一种和需求通过工厂模式创建对象)
+							——————>自定义构建函数创建对象时发生了：
+											1)在内存中开辟空间(申请一块空闲的空间)，存储创建的新的对象
+											2)把this设置为当前的对象
+											3)设置对象的属性和方法的值
+											4)把this这个对象返回
+					 3.字面量的方式创建对象
+							——————>缺陷：一次性对象，不能传值
+							
+	点语法：
+			1.传值——————>对象.名字 = 值;
+			2.传函数——————>对象.名字 = 函数;
+					 
+	函数和构造函数的区别：
+					名字是不是大写(首字母)
+					作用有区别，用法没区别
+	
+	注意：
+		1.如何获取该变量(对象)是不是属于某一类型的？
+											语法：
+												变量 instanceof 类型的名字
+											结果：
+												布尔类型(true/false)
+		2.如何一次性创建多个对象？
+							把创建对象的代码封装在一个函数中
+		3.通过自定义创建对象可以判断出类型
+		4.在当前的对象方法中，可以使用this关键字代表当前的对象
+		
+-->

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//求1——n之间的所有和
+			function getSum(m) {
+				var sum = 0;
+				for (var i = 1; i <= m; i++) {
+					sum += i;
+				}
+				return sum;
+			}
+			console.log(getSum(100));
+
+			//求n——m之间的所有和
+			function getEverySum(n, m) {
+				var sum = 0;
+				for (var i = n; i <= m; i++) {
+					sum += i;
+				}
+				return sum;
+			}
+			console.log(getEverySum(1, 100));
+
+			//圆的面积
+			function getS(r) {
+				return Math.PI * r * r;
+			}
+			console.log(getS(3));
+
+			//求两个数中最大值
+			function max(n, m) {
+				if (n > m) {
+					return n;
+				} else {
+					return m;
+				}
+			}
+			console.log(max(2, 3));
+
+			function getMax(x, y) {
+				return x > y ? x : y;
+			}
+			var num1 = 2;
+			var num2 = 3;
+			var result = getMax(num1, num2);
+			console.log(result);
+
+			//求三个数中最大值
+			function maxS(n, p, m) {
+				if (n > p && n > m) {
+					return n;
+				} else if (p > n && p > m) {
+					return p;
+				} else if (m > n && m > p) {
+					return m;
+				}
+			}
+			console.log(maxS(12, 27, 31));
+
+			function getThreeMax(x, y, z) {
+				return x > y ? (x > z ? x : z) : (y > z ? y : z);
+			}
+			console.log(getThreeMax(5, 3, 8));
+
+			//法一.判断一个数是否为素数(质数),只能被1和自身整除,且从2开始
+			function primeNum(n) {
+				for (var i = 2; i < n; i++) {
+					if (n % i == 0) {
+						//说明一个数字整除了,就没有必要继续向后整除了
+						return false;
+					}
+				}
+				return true;
+			}
+			/* var result1 = primeNum(946);
+			if (result1) {
+				console.log("这个数字是质数");
+			} else {
+				console.log("这个数字不是质数");
+			} */
+			console.log(primeNum(946) ? "是质数" : "不是质数");
+			
+			//法二.判断一个数是否为素数(质数),只能被1和自身整除,且从2开始
+			function isPrimeNum(n) {
+				for (var i = 2; i <= n/2; i++) {
+					if (n % i == 0) {
+						//说明一个数字整除了,就没有必要继续向后整除了
+						return false;
+					}
+				}
+				return true;
+			}
+			console.log(isPrimeNum(946) ? "是质数" : "不是质数");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

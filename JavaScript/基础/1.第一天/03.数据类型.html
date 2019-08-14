@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//声明变量并初始化
+			var num = 10;
+			var str = "小白";
+			var flat = true;
+			var nll = null;
+			var undef;
+			var obj = new Object();
+			//使用 typeof 获取数据类型
+			console.log(typeof num); //number
+			console.log(typeof str); //string
+			console.log(typeof flat); //boolean
+			console.log(typeof nll); //object,不是null
+			console.log(String(nll)); //null，将 nll 这个变量转化为字符串的形式输出
+			console.log(typeof undef); //undefined
+			console.log(typeof new Object()); //object
+
+			console.log("10"); //输出的为字符串类型
+			console.log(10); //输出的为数字类型
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+<!-- 
+	JS中的原始数据类型：
+				number:数字类型（整数或小数）
+				string:字符串类型（用单引号或双引号括起来）
+				boolean:布尔类型（true或false）
+				null:空类型，一个对象指向为空，此时可赋这个
+				undefined:未定义，值只有一个（变量声明了但未赋值/函数没有明确的返回值，接受了）
+						  若一个变量的结果是undefined和数字进行计算，结果为：NaN不是一个数字，无意义
+				object:对象
+	
+	如何获取这个变量的数据类型：使用 “typeof” 来获取
+	
+	Typeof 的使用语法：
+					1. typeof 变量名
+					2. typeof(变量名)
+ -->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>通过函数,输入年月日,获取这个日期是这一年的第多少天</title>
+		<script type="text/javascript">
+			<!-- 一个函数之内可以对另外一个函数进行调用 -->
+			//先判断输入年份是否为闰年
+			function isLeapYear(year) {
+				return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+			}
+			//进行运算
+			function getDays(year, month, day) {
+				var days = day; //定义变量存储天数
+				if (month == 1) { //如果输入的为1月,直接输出输入的天数即可
+					return days;
+				}
+				var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //定义一个数组,用来存储每个月的天数
+				for (var i = 0; i < month - 1; i++) {
+					days += months[i];
+				}
+				if (isLeapYear(year) && month > 2) { //调用isLeapYear(year)函数进行判断是否为闰年,且判断输入月份是否大于2月
+					days++;
+				}
+				return days;
+			}
+			console.log(getDays(2018, 3, 28));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

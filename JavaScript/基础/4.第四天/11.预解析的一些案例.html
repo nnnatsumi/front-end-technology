@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+		//一.此处代码段不用执行
+			//源代码:
+			f1();
+			console.log(c);   //9
+			console.log(b);   //9
+			console.log(a);   //报错
+			function f1() {
+				var a = b = c = 9;
+				console.log(a);   //9
+				console.log(b);   //9
+				console.log(c);   //9
+			}
+			//上面代码预解析后:
+			function f1 (){
+				var a;   //此时a为局部变量
+				b = 9;   //b为隐式全局变量
+				c = 9;   //c为隐式全局变量
+				console.log(a);   //9
+				console.log(b);   //9
+				console.log(c);   //9
+			}
+			f1();
+			console.log(c);   //9
+			console.log(b);   //9
+			console.log(a);   //报错
+			
+		//二.
+			//源代码:
+			f1();   //不能调用,报错
+			var f1=function (){   //此处f1是个变量
+				console.log(a);
+				var a=10;
+			}
+			//上面代码预解析后:
+			var f1;
+			f1();
+			f1 = function (){
+				console.log(a);
+				var a = 10;
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+	预解析中，变量的提升，只会在当前作用域中提升，提升到当前作用域最上面
+	函数的变量只会提升到函数作用域的最上面，不会出去 
+-->

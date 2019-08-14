@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//打印10次:哈哈,我又变帅了
+			for (var i = 0; i < 10; i++) {
+				console.log("哈哈，我又变帅了")
+			}
+
+			//求1-100之间所有数字的和
+			var sum = 0;
+			for (var i = 1; i <= 100; i++) {
+				sum += i;
+			}
+			console.log(sum);
+
+			//求1-100之间所有偶数的和
+			var summ = 0;
+			for (var j = 1; j <= 100; j++) {
+				if (j % 2 == 0) {
+					summ += j;
+				}
+			}
+			console.log(summ);
+
+			//求1-100之间所有奇数的和
+			var summm = 0;
+			for (var k = 1; k <= 100; k++) {
+				if (k % 2 != 0) {
+					summm += k;
+				}
+			}
+			console.log(summm);
+
+			//求出1-100所有能被7整除的数
+			for (var p = 1; p <= 100; p++) {
+				if (p % 7 == 0) {
+					console.log(p);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<!-- 
+	for循环： 
+			语法：
+				for(表达式1;表达式2;表达式3){
+					循环体;
+				}
+			执行过程：
+					先执行表达式1，再判断表达式2，若表达式2不成立，则跳出循环；
+					若表达式2成立，则执行循环体，然后执行表达式3，再次判断表达式2，以此类推
+-->
