@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//location对象：拥有属性和方法
+					
+					/* 
+					//输出location对象
+						console.log(window.location);
+					
+					//输出location对象的属性
+						//地址栏上 #及后面的内容
+							console.log(window.location.hash);
+						//主机名及端口号
+							console.log(window.location.host);
+						//主机名
+							console.log(window.location.hostname);
+						//页面文件的相对路径
+							console.log(window.location.pathname);
+						//端口号
+							console.log(window.location.port);
+						//协议
+							console.log(window.location.protocol);
+						//搜索的内容
+							console.log(window.location.search); 
+					*/
+				 
+					//输出location对象的方法
+						onload = function(){
+							document.getElementById("btn").onclick = function(){
+								//设置跳转页面,此处为属性,有历史纪录，有后退(必须记住)
+										location.href = "http://www.jd.com";
+								//设置跳转页面,此处为方法
+										//location.assign("http://www.jd.com");
+								//设置跳转页面,此处为方法,没有历史纪录，没有后退
+										//location.replace("http://www.jd.com");
+								
+								//重新加载
+										//location.reload();
+								
+							};
+						};
+		</script>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="显示效果" />
+		
+	</body>
+</html>

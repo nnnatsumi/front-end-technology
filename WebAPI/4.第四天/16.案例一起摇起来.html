@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+				height: 200px;
+			}
+			div{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn1" value="摇起来" />
+		<input type="button" name="" id="btn2" value="停止" />
+		<div id="dv">
+			<img src="../images/1-small.jpg" >
+			<img src="../images/2-small.jpg" >
+		</div>
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//设置一个全局变量,以便于解除摇动效果可以接受id值
+			var timeId = "";
+			
+			//点击按钮1使得图片自己动起来
+			my$("btn1").onclick = function(){
+					//设置定时器使得div根据设置的时间自己动
+						timeId = setInterval(function(){
+							//随机改变div的位置使得其动起来
+							var x = parseInt(Math.random()*100+1);
+							var y = parseInt(Math.random()*100+1);
+							my$("dv").style.left = x+"px";
+							my$("dv").style.top = y+"px";
+						},100);
+				};
+				
+				//点击按钮二使得摇动的效果解除
+				my$("btn2").onclick = function(){
+					clearInterval(timeId);
+				};
+		</script>
+		
+	</body>
+</html>
+
+
+
+<!-- 
+//随机数
+	Math.random();
+	//1-100的随机数
+		Math.random()*100+1;
+		//1-100的随机整数
+			parseInt(Math.random()*100+1); 
+ -->

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="哈哈" />
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			my$("btn").onclick = f1;
+			my$("btn").onmouseover = f1;
+			my$("btn").onmouseout = f1;
+			
+			function f1(e){
+				switch (e.type){
+					case "click":alert("天青色等烟雨，而我在等你");
+					break;
+					case "mouseover":this.style.backgroundColor = "skyblue";
+					break;
+					case "mouseout":this.style.backgroundColor = "green";
+					break;
+				}
+			}
+		</script>
+		
+	</body>
+</html>

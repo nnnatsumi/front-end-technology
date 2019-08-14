@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<img src="" id="im" >
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function	f1(){
+				//获取当前时间
+				var dt = new Date();
+					//获取小时
+					var hour = dt.getHours();
+					//获取秒
+					var second = dt.getSeconds();
+					//判断并使得时间显示为双位数
+					hour = hour<10?"0"+hour:hour;
+					second = second<10?"0"+second:second;
+					
+				my$("im").src = "meimei/"+hour+"_"+second+".jpg";
+			};
+			//先执行一遍函数,防止加载过久的bug
+			f1();
+			
+			//页面加载完毕后，过了1秒才执行函数的代码
+			//设置定时器,使得1秒更新一次
+			setInterval(f1,1000);
+		</script>
+		
+	</body>
+</html>

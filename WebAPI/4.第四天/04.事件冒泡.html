@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#dv1{
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			}
+			#dv2{
+				width: 250px;
+				height: 250px;
+				background-color: red;
+			}
+			#dv3{
+				width: 200px;
+				height: 200px;
+				background-color: greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="dv1">
+			<div id="dv2">
+				<div id="dv3"></div>
+			</div>
+		</div>
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			my$("dv1").onclick = function(){
+				console.log(this.id);
+			};
+			my$("dv2").onclick = function(){
+				console.log(this.id);
+			};
+			my$("dv3").onclick = function(e){
+				console.log(this.id);
+				//组织事件冒泡
+					/* 
+						谷歌,IE支持:
+											其中“cancelBubble”是一个属性
+						window.event.cancelBubble = true; 
+					*/
+				 
+					//谷歌,火狐支持:其中"stopPropagation"是一个方法
+						e.stopPropagation();
+			};
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+		事件冒泡：
+						1.多个元素嵌套，有层次关系，这些元素都注册了相同的事件，如果里面的元素事件触发了，外面							 的元素该事件自动触发
+						2.事件冒泡的顺序是从里向外
+						
+		
+		阻止事件冒泡：
+						————>window.event和e都是事件参数对象，一个是IE的标准，一个是火狐的标准
+						1.谷歌，IE支持：window.event.cancelBubble = true;
+																				————>window.event是一个对象，是IE的标准
+						2.谷歌，火狐支持：e.stopPropagation();
+																				————>e是一个事件参数，在IE8中可用window.event代替
+-->

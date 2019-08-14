@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#dv1{
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			}
+			#dv2{
+				width: 250px;
+				height: 250px;
+				background-color: red;
+			}
+			#dv3{
+				width: 200px;
+				height: 200px;
+				background-color: greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="dv1">
+			<div id="dv2">
+				<div id="dv3"></div>
+			</div>
+		</div>
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+		事件： 
+				三个阶段：
+								1.事件捕获阶段：从外向里
+								2.事件目标阶段：最开始选择的那个
+								3.事件冒泡阶段：从里向外
+								
+				查看事件阶段：
+										可以通过 e.eventPhase 这个属性可以知道当前的事件处于哪一阶段，一般默认冒泡阶段
+										属性值：
+													若是1 ————> 事件捕获阶段
+													若是2 ————> 事件目标阶段
+													若是3 ————> 事件冒泡阶段
+-->

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/* 
+			此处的会报错,因为执行此处脚本语句的时候,页面中的按钮还未加载完成，获取不到
+						document.getElementById("btn").onclick = function(){
+							alert("您好");
+						}; 
+			*/
+		 
+			//重要的事件："window.onload"——————>页面全部加载完毕,事件就会触发
+			window.onload = function(){
+					document.getElementById("btn").onclick = function(){
+					alert("您好");
+				}; 
+			};
+			
+			/* 
+			扩展事件:
+							onunload事件——————>页面关闭后触发的事件
+							谷歌不支持,IE8支持 
+							
+							window.onunload = function(){
+								alert("您好");
+							};
+				
+			扩展事件:
+							onbeforeunload事件——————>页面关闭前触发的事件
+							谷歌不支持,IE8支持 
+							
+							window.onbeforeunload = function(){
+								alert("您好");
+							};
+			*/
+		</script>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="按钮" />
+		
+		<script type="text/javascript">
+			/* 
+				document.getElementById("btn").onclick = function(){
+				alert("您好");
+				}; 
+			*/
+		</script>
+		
+	</body>
+</html>

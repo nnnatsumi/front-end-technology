@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="停止定时器" />
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+					//定时器一:
+						//参数1:函数
+						//参数2:时间----->毫秒        1000毫秒===1秒
+						//返回值:定时器的id值
+						//执行过程:页面加载完毕,过了1秒,执行一次函数代码,又过了一秒再执行代码......
+						var timeId = window.setInterval(function(){
+							alert("你好");
+						},2000);
+						
+						//点击按钮停止定时器
+						my$("btn").onclick = function(){
+							//参数:要清理定时器的id的值
+							window.clearInterval(timeId);
+						};
+		</script>
+		
+		<!-- <script type="text/javascript">
+			//定时器二:一次性定时器
+				/* 
+					参数一:函数
+					参数二: 时间
+				*/
+				var timeId = window.setTimeout(function(){
+					alert("一蓑烟雨任平生");
+				},1000)
+				
+			//点击按钮停止一次性定时器
+			document.getElementById("btn").onclick = function(){
+				clearTimeout(timeId);
+			};
+		</script> -->
+		
+	</body>
+</html>
+
+
+<!-- 
+BOM中有两个定时器(计时器)：
+								———————>定时器一：
+																//重复定时器：
+																window.setInterval(函数，时间)；
+																//停止此定时器：
+																window.clearInterval(定时器Id);
+								———————>定时器二：
+																//一次性定时器：
+																window.setTimeout(函数，时间)；
+																//停止此定时器：
+																window.clearTimeout(定时器Id)；
+-->
