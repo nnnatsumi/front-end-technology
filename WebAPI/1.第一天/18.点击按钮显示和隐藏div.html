@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 300px;
+				background-color: aliceblue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="隐藏" />
+		<div id="dv"></div>
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			my$("btn").onclick = function(){
+				//判断当前点击按钮的 value 值
+				if(this.value == "隐藏"){
+					my$("dv").style.display = "none";
+					this.value = "显示";
+				}else if(this.value == "显示"){
+					my$("dv").style.display = "block";
+					this.value = "隐藏";
+				}
+			};
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style-type: none;
+				cursor: pointer;
+			}
+			div{
+				width: 300px;
+				height: 200px;
+				background-color: skyblue;
+			}
+			.cls{
+				background-color: chartreuse;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul id="uu">
+			<li>霍去病</li>
+			<li>白起</li>
+			<li>岳飞</li>
+			<li>韩信</li>
+			<li>李靖</li>
+		</ul>
+		
+		<input type="button" name="" id="btn" value="移除自定义属性" />
+		<div id="dv" score="10" class="cls"></div>
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/* 
+				自定义属性:
+						本身html标签没有这个属性,自己(程序员)添加的
+						为了存储一些数据 
+						
+				DOM对象上的属性与标签中的属性不同，不能直接获取
+				
+				设置自定义属性的值：
+						需要使用 setAttribute("自定义属性的名字",值) 才能设置这个属性的值
+						
+				获取自定义属性的值：
+						需要使用 getAttribute("自定义属性的名字") 才能获取这个属性的值
+						
+				移除自定义属性：
+						需要使用 removeAttribute("自定义属性的名字") 才能移除这个属性的值
+								也可移除元素自带属性
+			*/
+			
+			/* 获取所有的li标签,然后为每个标签中动态的添加自定义属性和值 */
+				//设置
+				var list = my$("uu").getElementsByTagName("li");
+					//循环遍历
+					for(var i=0;i<list.length;i++){
+						//先为每个li添加自定义属性
+						list[i].setAttribute("age",(i+1)*10);
+					}
+			
+				//获取
+				var list = document.getElementsByTagName("li");
+				for(var i=0;i<list.length;i++){
+					list[i].onclick = function(){
+						alert(this.getAttribute("age"));
+					};
+				}
+				
+				//移除
+				my$("btn").onclick = function(){
+					my$("dv").removeAttribute("score");
+					
+					//移除类样式
+						//此方法：my$("dv").className = "";  移除不干净,类仍存在,值是值没有了
+						//此方法移除的干净,类彻底移除
+							my$("dv").removeAttribute("class");
+				};
+		</script>
+		
+	</body>
+</html>

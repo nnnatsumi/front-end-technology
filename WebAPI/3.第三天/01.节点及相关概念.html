@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="dv">
+			<span>这的是div中第一个span标签</span>
+			<p>这的是div中第二个元素，第一个p标签</p>
+			<ul id="uu">
+				<li>乔峰</li>
+				<li>虚竹</li>
+				<li id="three">段誉</li>
+				<li>王语嫣</li>
+				<li>慕容复</li>
+			</ul>
+		</div>
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var ulObj = my$("uu");
+			//ul标签的父级节点
+			console.log(ulObj.parentNode);
+			//ul标签的父级元素
+			console.log(ulObj.parentElement);
+			
+			console.log(ulObj.parentNode.nodeName);   //标签————>1
+			console.log(ulObj.parentNode.nodeType);   //标签————>大写的标签名字
+			console.log(ulObj.parentNode.nodeValue);   //标签————>null
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+	节点：
+		页面中的所有属性(标签，属性，文本(文字，换行，空格，回车))，node 
+		
+		使用方法：
+				1.使用标签元素.出来
+				2.使用属性节点.出来
+				3.使用文本节点.出来
+		
+		相关属性：
+				1.nodeType：节点类型：
+									1————>标签
+									2————>属性
+									3————>文本
+				2.nodeName：节点名字：
+									标签节点————>大写的标签名字
+									属性节点————>小写的属性名字
+									文本节点————>#text
+				3.nodeValue：节点的值：
+									 标签节点————>null
+									 属性节点————>属性值
+									 文本节点————>文本内容
+-->

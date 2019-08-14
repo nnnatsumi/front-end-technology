@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="修改" />
+		<p>一蓑烟雨任平生</p>
+		<p>一蓑烟雨任平生</p>
+		<p>一蓑烟雨任平生</p>
+		<p>一蓑烟雨任平生</p>
+		<p>一蓑烟雨任平生</p>
+		
+		
+		<script type="text/javascript">
+			//根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+			document.getElementById("btn").onclick = function(){
+				/* 
+					根据标签名字获取标签 
+					document.getElementsByTagName("标签的名字"),返回值是一个伪数组
+				*/
+					var pObjs = document.getElementsByTagName("p");
+					//循环遍历这个伪数组
+					for(var i=0;i<pObjs.length;i++){
+						//每个p标签,设置文字内容
+						pObjs[i].innerText = "竹杖芒鞋轻胜马";
+					}
+			};
+		</script>
+		
+	</body>
+</html>

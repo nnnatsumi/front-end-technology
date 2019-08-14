@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>点击按钮，弹出对话框</title>
+	</head>
+	<body>
+		<!-- html标签中的id属性中存储的值是唯一的，是页面中唯一的标识 -->
+			<input type="button" id="btn" value="显示效果" />
+		
+			<script type="text/javascript">
+				
+				document.getElementById("btn").onclick = function(){
+					alert("天青色等烟云，而我在等你");
+				};
+		</script>
+	</body>
+</html>
+
+<!-- 点击操作：
+		 事件：就是一件事，有触发和响应，事件源 
+		 按钮：事件源
+		 点击：事件名字
+		 被点了：触发了
+		 弹框：响应了
+-->

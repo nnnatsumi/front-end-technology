@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style-type: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" id="btn" value="禁用文本框" />
+		<input type="text" id="txt" value="文本框" />
+		
+		<br />
+		
+		<input type="button" id="btn2" value="变色" />
+		<ul id="uu">
+			<li>诺基亚</li>
+			<li>华为</li>
+			<li>小米</li>
+			<li>魅族</li>
+			<li>三星</li>
+		</ul>
+		
+		
+		
+		<script>
+			document.getElementById("btn").onclick = function(){
+				document.getElementById("txt").disabled = true;
+			};
+			
+			document.getElementById("btn2").onclick = function(){
+				document.getElementById("uu").style.backgroundColor = "skyblue";
+			};
+		</script>
+		
+	</body>
+</html>

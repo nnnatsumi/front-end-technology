@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="" value="努力啊" />
+		<input type="button" name="" id="" value="努力啊" />
+		<input type="button" name="" id="" value="努力啊" />
+		<input type="button" name="" id="" value="努力啊" />
+		<input type="button" name="" id="" value="努力啊" />
+		<input type="button" name="" id="" value="努力啊" />
+		
+		<script type="text/javascript">
+			//获取所有按钮,分别注册点击事件
+			var btnObj = document.getElementsByTagName("input");
+				//循环遍历所有按钮
+				for(var i=0;i<btnObj.length;i++){
+					//为每个按钮注册点击事件
+					btnObj[i].onclick = function(){
+						//把所有按钮的 value 值设置为默认的值
+						for(var j=0;j<btnObj.length;j++){
+							btnObj[j].value = "努力啊";
+						}
+						//当前被点击的按钮 value 值改变
+						//此处不能用"btnObj[i]"这种形式,原因看下方
+						this.value = "我成功了";
+					};
+				}
+		</script>
+		
+	</body>
+</html>
+
+
+<!-- 
+	for循环是在页面加载的时候，执行完毕了
+	事件是在触发的时候才执行 
+	
+	如：
+		this.value = "我成功了;
+		——————> 此处的代码位于 for(var i=0;i<btnObj.length;i++){} 中，在页面加载完毕，
+				就执行完毕，此时循环结束 i=6 ，但是 input 标签最多为5，所以若用 btnObj[i]
+				这种形式的写法，就会报错
+-->

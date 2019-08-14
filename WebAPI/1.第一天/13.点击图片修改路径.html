@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<a href="../img/banner2.jpg" id="ak">
+			<img src="../img/Big_icon1.png" id="im">
+		</a>
+		
+		<script type="text/javascript">
+			document.getElementById("im").onclick = function(){
+				this.src = document.getElementById("ak").href;
+				//因为由 a 标签，点击会发生跳转，所以为了防止页面跳转
+				return false;
+			};
+		</script>
+		
+	</body>
+</html>

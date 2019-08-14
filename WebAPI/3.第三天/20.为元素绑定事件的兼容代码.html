@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="按钮" />
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/* 兼容代码 */
+				//为任意元素,绑定任意事件:任意的元素/事件类型/事件处理函数
+				function addEventListener(element,type,fn){
+					//判断浏览器是否支持这个方法
+					if(element.addEventListener){
+						//若支持
+						element.addEventListener(type,fn,false);
+					}else if(element.attachEvent){
+						//若支持
+						element.attachEvent("on"+type,fn);
+					}else{
+						element["on"+type] = fn;
+					}
+				}
+				
+				//测试
+				my$("btn").addEventListener("click",function(){
+					console.log("天青色等烟雨，而我在等你");
+				},false)
+				my$("btn").addEventListener("click",function(){
+					console.log("竹杖芒鞋轻胜马");
+				},false)
+				my$("btn").addEventListener("click",function(){
+					console.log("谁怕");
+				},false)
+				my$("btn").addEventListener("click",function(){
+					console.log("一蓑烟雨任平生");
+				},false)
+		</script>
+		
+	</body>
+</html>

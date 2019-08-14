@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<img src="../img/Big_icon1.png" id="im">
+		<input type="button" name="" id="btn" value="修改" />
+		
+		<script type="text/javascript">
+			//创建专门用来获取元素 id 属性的函数
+			function getId(id){
+				return document.getElementById(id);
+			}
+			
+			getId("btn").onclick = function(){
+				getId("im").src = "../img/banner2.jpg";
+			};
+		</script>
+		
+	</body>
+</html>

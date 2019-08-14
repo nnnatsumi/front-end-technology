@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="dv">
+			<span>这的是div中第一个span标签</span>
+			<p>这的是div中第二个元素，第一个p标签</p>
+			<ul id="uu">
+				<li>乔峰</li>
+				<li>虚竹</li>
+				<li id="three">段誉</li>
+				<li>王语嫣</li>
+				<li>慕容复</li>
+			</ul>
+		</div>
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var dvObj = my$("dv");
+			
+			//子节点
+			console.log(dvObj.childNodes);   //7个子节点
+			//子元素
+			console.log(dvObj.children);   //3个子元素
+			
+			//遍历div下每一个子节点
+			for(var i=0;i<dvObj.childNodes.length;i++){
+				var node = dvObj.childNodes[i];
+				console.log(node.nodeType+"==="+node.nodeName+"==="+node.nodeValue);
+			}
+			
+			//获取节点
+			var node = dvObj.getAttributeNode("id");
+			console.log(node.nodeType+"==="+node.nodeName+"==="+node.nodeValue);
+		</script>
+		
+	</body>
+</html>

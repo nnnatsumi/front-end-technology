@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.cls{
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="显示效果" />
+		<p>这是一个p</p>
+		<p class="cls">这是一个p</p>
+		<span>这是一个span</span><br />
+		<span class="cls">这是一个span</span>
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//点击按钮弹出对话框
+				//根据选择器的方式获取元素
+					
+					var btnObj = document.querySelector("#btn");
+					btnObj.onclick = function(){
+						alert("一蓑烟雨任平生");
+					}; 
+				
+				
+					var btnObj1 = document.querySelectorAll(".cls");
+					for(var i=0;i<btnObj1.length;i++){
+						btnObj1[i].style.backgroundColor = "green";
+					}
+		</script>
+		
+	</body>
+</html>

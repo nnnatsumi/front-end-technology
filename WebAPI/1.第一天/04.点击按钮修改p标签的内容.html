@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" id="btn" value="改变显示内容" />
+		<p id="change">哈哈哈哈</p>
+		
+		
+		<script type="text/javascript">
+			//根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+			document.getElementById("btn").onclick = function(){
+				//凡是成对的标签,中间文本内容设置的时候,都是用 innerText 这个属性方式
+					document.getElementById("change").innerText = "天青色等烟云，而我在等你";
+			};
+			
+		</script>
+		
+	</body>
+</html>

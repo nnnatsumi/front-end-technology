@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="创建" />
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//为同一个元素绑定多个相同的事件
+			my$("btn").addEventListener("click",function(){
+				console.log("天青色等烟雨，而我在等你");
+			},false)
+			my$("btn").addEventListener("click",function(){
+				console.log("竹杖芒鞋轻胜马");
+			},false)
+			my$("btn").addEventListener("click",function(){
+				console.log("谁怕");
+			},false)
+			my$("btn").addEventListener("click",function(){
+				console.log("一蓑烟雨任平生");
+			},false)
+			
+			/* 
+			只有IE8能用
+				my$("btn").attachEvent("onclick",function(){
+					console.log("衣带渐宽终不悔，为伊消得人憔悴1");
+				}) 
+				my$("btn").attachEvent("onclick",function(){
+					console.log("衣带渐宽终不悔，为伊消得人憔悴2");
+				}) 
+				my$("btn").attachEvent("onclick",function(){
+					console.log("衣带渐宽终不悔，为伊消得人憔悴3");
+				}) 
+			*/
+		</script>
+	</body>
+</html>
+
+
+<!-- 
+	为元素绑定事件(DOM)：
+					1. 对象.addEventListener(参数1，参数2，参数3) : 谷歌，火狐支持
+																		=======》	参数1：事件的类型————>事件的名字，没有on
+																							参数2：事件处理函数————>函数(命名函数/匿名函数)
+																							参数3：布尔类型，控制事件阶段的
+																															false————>事件冒泡阶段
+																															true————>事件捕获阶段
+													
+					2. 对象.attachEvent() ：IE8支持
+																		=======》	参数1：事件的类型————>事件的名字，有on
+																							参数2：事件处理函数————>函数(命名函数/匿名函数)
+-->

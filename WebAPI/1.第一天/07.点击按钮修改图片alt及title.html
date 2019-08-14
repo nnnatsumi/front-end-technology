@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="修改" />
+		<img src="../img/Product_img3.jpg" alt="" title="">
+		
+		<script type="text/javascript">
+			//根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+			document.getElementById("btn").onclick = function(){
+				//返回的是一个伪数组
+				var imgObj = document.getElementsByTagName("img");
+				imgObj[0].alt = "改变成功";
+				imgObj[0].title = "网络中国";
+			};
+		</script>
+		
+	</body>
+</html>

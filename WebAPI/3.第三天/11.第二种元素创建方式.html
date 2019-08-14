@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #00FFFF;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="创建一个p" />
+		<div id="dv"></div>
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//父级对象.innerHTML = "标签及代码";
+				//点击按钮,在div里面创建一个p标签
+					my$("btn").onclick = function(){
+						my$("dv").innerHTML = "竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。";
+					};
+		</script>
+	
+	</body>
+</html>

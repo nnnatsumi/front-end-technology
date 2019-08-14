@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="获取" /><br />
+		<input type="text" name="name2" id="" value="哈哈" /><br />
+		<input type="text" name="name1" id="" value="哈哈" /><br />
+		<input type="text" name="name5" id="" value="哈哈" /><br />
+		<input type="text" name="name1" id="" value="哈哈" /><br />
+		<input type="text" name="name9" id="" value="哈哈" /><br />
+		<input type="text" name="name1" id="" value="哈哈" /><br />
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//点击按钮,改变所有name属性值为name1的value值
+			
+			my$("btn").onclick = function(){
+				//通过name值获取元素——————>表单的标签
+				var inputs = document.getElementsByName("name1");
+				for(var i=0;i<inputs.length;i++){
+					inputs[i].value = "我很好";
+				}
+			};
+		</script>
+		
+	</body>
+</html>

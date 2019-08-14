@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<input type="button" name="" id="btn" value="点菜" />
+		<select id="ss">
+			<option value="1">鱼香肉丝</option>
+			<option value="2">麻婆豆腐</option>
+			<option value="3" id="op1">宫保鸡丁</option>
+			<option value="4">糖醋里脊</option>
+			<option value="5">水煮肉片</option>
+		</select>
+		
+		<br>
+
+		<input type="button" name="" id="btn2" value="注册" />
+		<textarea rows="30" cols="40" id="tt">
+			贾扬清本科毕业于清华大学信息科技自动化专业，在美国加州大学伯克利分校获得计算机科学博士
+			学位。攻读博士期间，贾扬清创立并开源了深度学习框架Caffe，这一框架被微软、雅虎、英伟达、
+			Adobe 等公司采用。
+			2013年贾扬清毕业，加入之前就已实习了2年的Google，在Google首席架构师Jeff Dean麾下任职。
+			2016年2月，贾扬清从Google离职进入Facebook，在当时Facebook人工智能实验室负责人Yann 
+			LeCun手下担任研究科学家。在这里，贾扬清打造的深度学习框架Caffe，成为了Facebook 重点部
+			署的框架之一。
+		</textarea>
+
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			my$("btn").onclick = function() {
+				my$("op1").selected = true;
+			};
+			
+			my$("btn2").onclick = function(){
+				//textarea标签是属于表单标签的,表单标签改变内容,推荐使用 value 属性
+				my$("tt").value = "一蓑烟雨任平生";
+				
+				/* my("tt").innerText="一蓑烟雨任平生",此方法也可,此方法的改变是将页面内容和
+				浏览器控制台内容均改变 */
+			};
+		</script>
+
+	</body>
+</html>
+
+
+
+<!-- 
+	html中属性和值是自己的，并且只有一个的，其实，可以只写这个属性，不用赋值
+	disabled——————>这个属性控制禁用的 
+	readonly——————>这个属性是只读，只能看不能改
+-->

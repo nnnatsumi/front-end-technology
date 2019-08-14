@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="修改" /><br>
+		<input type="" name="" id="" value="" /><br>
+		<input type="" name="" id="" value="" /><br>
+		<input type="" name="" id="" value="" /><br>
+		<input type="" name="" id="" value="" /><br>
+		<input type="" name="" id="" value="" /><br>
+		<input type="" name="" id="" value="" /><br>
+		
+		<script type="text/javascript">
+			//根据id获取按钮,为按钮注册点击事件,添加事件处理函数
+			document.getElementById("btn").onclick = function(){
+				var valObj = document.getElementsByTagName("input");
+				for(var i=0;i<valObj.length;i++){
+					//判断 type 属性值,来区分想改变的 input 标签里的 value 属性
+					if(valObj[i].type != "button"){
+						valObj[i].value = "一蓑烟雨任平生";
+					}
+				}
+			};
+		</script>
+		
+	</body>
+</html>

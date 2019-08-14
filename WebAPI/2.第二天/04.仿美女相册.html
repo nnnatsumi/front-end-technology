@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style-type: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul id="uu">
+			<li><a href="../images/1.jpg" title="美女1"><img src="../images/1-small.jpg" ></a></li>
+			<li><a href="../images/2.jpg" title="美女2"><img src="../images/2-small.jpg" ></a></li>
+			<li><a href="../images/3.jpg" title="美女3"><img src="../images/2-small.jpg" ></a></li>
+			<li><a href="../images/4.jpg" title="美女4"><img src="../images/3-small.jpg" ></a></li>
+		</ul>
+		
+		<div style="clear: both;"></div>
+		<!-- 显示大图 -->
+		<img src="../images/placeholder.png" id="image" width="450" >
+		<p id="des">选择一个图片</p>
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//点击a标签,把a标签中的href的属性值给id为image的src属性
+			//把a的title属性的值给id为des的p标签赋值
+			
+			//从ul中获取所有a标签
+			var aObj = my$("uu").getElementsByTagName("a");
+			//循环遍历所有a标签
+			for(var i=0;i<aObj.length;i++){
+				//为每个a标签注册点击事件
+				aObj[i].onclick = function(){
+					//为id为image的标签的src赋值
+					my$("image").src = this.href;
+					//为p标签赋值
+					my$("des").innerText = this.title;
+					//阻止跳转
+					return false;
+				};
+			}
+		</script>
+		
+	</body>
+</html>

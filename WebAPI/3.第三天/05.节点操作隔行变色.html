@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="隔行换色" />
+		<ul id="uu">
+			<li>红旗</li>
+			<li>奔驰</li>
+			<li>宝马</li>
+			<li>奥迪</li>
+			<li>大众</li>
+			<li>吉利</li>
+			<li>牧马人</li>
+			<li>路虎</li>
+		</ul>
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//隔行变色————>li
+			my$("btn").onclick = function(){
+				//记录获取的li的个数
+				var count = 0;
+				//获取ul中所有的子节点
+				var nodes = my$("uu").childNodes;
+				for(var i=0;i<nodes.length;i++){
+					//判断是不是li标签
+					if(nodes[i].nodeType==1 && nodes[i].nodeName=="LI"){
+						//由于获取节点获取了18个所有的节点，此处应使用记录的li个数来判断
+						nodes[i].style.backgroundColor =  count%2==0? "red":"yellow";
+						count++;
+					}
+				}
+			};
+		</script>
+		
+	</body>
+</html>

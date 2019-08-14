@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 300px;
+				height: 300px;
+				border: 1px dashed #00FFFF;
+			}
+		</style>
+	</head>
+	<body>
+
+		<input type="button" name="" id="btn" value="创建一个p" />
+		<div id="dv"></div>
+
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/* 
+				document.creatElement("标签的名字")：得到对象
+							创建完元素后，需要将创建的元素追加到父级元素中
+			*/
+				//点击按钮,在div中创建一个p
+				my$("btn").onclick = function(){
+					//创建元素的
+					var pObj = document.createElement("p");
+					setInnerText(pObj,"这是一个p");
+					//把创建的子元素追加到父级元素中
+					my$("dv").appendChild(pObj);     //点击一次就会追加一次
+				};
+		</script>
+			
+		<body>
+	</body>
+</html>

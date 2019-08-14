@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 200px;
+				background-color: aqua;
+			}
+			.cls{
+				display: none;
+			}
+		</style>
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="btn" value="显示" />
+		<div id="dv"></div>
+		
+		<script type="text/javascript">
+			//通过类样式的方式
+			my$("btn").onclick = function(){
+				//判断了 div 是否应用了类样式
+				if(my$("dv").className != "cls"){
+					//现在是显示的状态,需要切换成隐藏状态
+					my$("dv").className = "cls";
+					this.value = "隐藏";
+				}else if(my$("dv").className == "cls"){
+					my$("dv").className = "";
+					this.value = "显示";
+				}
+			};
+		</script>
+		
+	</body>
+</html>

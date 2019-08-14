@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<img src="../img/Big_icon1.png" id="pic1"/>
+		
+		<script>
+			document.getElementById("pic1").onclick = function(){
+				this.src = "../img/banner2.jpg";
+				//防止发生页面跳转
+				return false;
+			};
+		</script>
+		
+	</body>
+</html>

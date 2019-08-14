@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="dv">
+			<span>这的是div中第一个span标签</span>
+			<p>这的是div中第二个元素，第一个p标签</p>
+			<ul id="uu">
+				<li>乔峰</li>
+				<li>虚竹</li>
+				<li id="three">段誉</li>
+				<li>王语嫣</li>
+				<li>慕容复</li>
+			</ul>
+		</div>
+		
+		
+		<script src="common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//12行代码都是获取节点和元素的
+				//ul
+				var ulObj = my$("uu");
+					//父级节点
+					console.log(ulObj.parentNode);
+					//父级元素
+					console.log(ulObj.parentElement);
+					//子节点
+					console.log(ulObj.childNodes);
+					//子元素
+					console.log(ulObj.children);
+					
+					console.log("下面开始:在IE8中，节点代码输出为元素的值，元素的代码得到undefined");
+					
+					//第一个子节点
+					console.log(ulObj.firstChild);
+					//第一个子元素
+					console.log(ulObj.firstElementChild);
+					//最后一个子节点
+					console.log(ulObj.lastChild);
+					//最后一个子元素
+					console.log(ulObj.lastElementChild);
+					//某个元素的前一个兄弟节点
+					console.log(my$("three").previousSibling);
+					//某个元素的前一个兄弟元素
+					console.log(my$("three").previousElementSibling);
+					//某个元素的后一个兄弟节点
+					console.log(my$("three").nextSibling);
+					//某个元素的后一个兄弟元素
+					console.log(my$("three").nextElementSibling);
+		</script>
+
+	</body>
+</html>

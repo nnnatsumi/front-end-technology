@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 阻止超链接默认跳转：return false -->
+		<a href="01.禁用文本框和改变列表背景色.html" onclick="return f1()">禁用文本框和改变列表背景色</a>
+		<br />
+		<a href="01.禁用文本框和改变列表背景色.html" id="jump">禁用文本框和改变列表背景色</a>
+		
+		<script>
+			function f1(){
+				alert("一蓑烟雨任平生");
+				return false;
+			}
+			
+			document.getElementById("jump").onclick = function(){
+				alert("竹杖芒鞋轻胜马");
+				return false;
+			};
+		</script>
+		
+	</body>
+</html>
